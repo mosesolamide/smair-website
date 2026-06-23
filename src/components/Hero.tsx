@@ -1,6 +1,9 @@
 import type React from "react";
+import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { revealVariants } from "./motion";
+
+const HeroCanvas = lazy(() => import("./HeroCanvas").then((m) => ({ default: m.HeroCanvas })));
 
 type HeroProps = {
   title: string;
@@ -14,13 +17,10 @@ export function Hero({ title, text, image, children }: HeroProps) {
 
   return (
     <section className="relative overflow-hidden bg-white pt-[70px]">
-      {/* Geometric decorative shapes — resolute.education style */}
-      <div className="pointer-events-none absolute inset-0 select-none">
-        <div className="absolute -left-16 top-16 h-72 w-72 rounded-full border-[3px] border-brand-cyan/20" />
-        <div className="absolute -right-10 top-8 h-56 w-56 rotate-12 rounded-3xl border-[3px] border-brand-violet/15" />
-        <div className="absolute bottom-16 left-1/4 h-24 w-24 rotate-45 border-[3px] border-brand-blue/15" />
-        <div className="absolute right-1/4 top-1/2 h-36 w-36 rounded-full border-[2px] border-brand-cyan/10" />
-      </div>
+      {/* Three.js animated wireframe shapes — loaded lazily so Three.js doesn't block initial render */}
+      <Suspense fallback={null}>
+        <HeroCanvas />
+      </Suspense>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
