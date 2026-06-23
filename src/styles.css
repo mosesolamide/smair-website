@@ -6,17 +6,17 @@
   --color-brand-sky: #94acdb;
   --color-brand-cyan: #2fe3c8;
   --color-brand-violet: #7c5cff;
-  --color-brand-ink: #090d1f;
   --color-brand-mist: #c9d6ed;
-  --shadow-lift: 0 20px 60px rgba(40, 89, 182, 0.14);
-  --shadow-glow: 0 0 0 1px rgba(47, 227, 200, 0.25), 0 0 40px rgba(47, 227, 200, 0.22);
-  --font-sans: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  --shadow-lift: 0 4px 24px rgba(0, 0, 0, 0.08);
+  /* Space Grotesk for headings/display, DM Sans for body */
+  --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
-  font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #2859b6;
+  font-family: "DM Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #18181b;
   background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,143 +24,114 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Space Grotesk for all headings — Swiss Modernism 2.0 display hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   background: #ffffff;
 }
 
-button,
-input,
-textarea {
-  font: inherit;
+button, input, textarea { font: inherit; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Global focus-visible ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #2fe3c8;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @layer components {
   .section-kicker {
-    @apply inline-flex items-center gap-2 font-mono text-sm font-medium uppercase tracking-[0.2em] text-brand-blue/80;
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-cyan;
   }
-
   .section-kicker::before {
-    content: "//";
-    color: var(--color-brand-cyan);
-  }
-
-  .section-kicker-dark {
-    @apply inline-flex items-center gap-2 font-mono text-sm font-medium uppercase tracking-[0.2em] text-brand-cyan;
-  }
-
-  .section-kicker-dark::before {
-    content: "//";
-    color: var(--color-brand-cyan);
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: currentColor;
   }
 
   .section-title {
-    @apply mt-4 text-4xl font-semibold leading-tight tracking-tight text-brand-blue sm:text-5xl;
+    @apply mt-3 text-4xl font-black leading-tight tracking-tight text-zinc-900 sm:text-5xl;
   }
 
   .section-title-dark {
-    @apply mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl;
-  }
-
-  .gradient-text {
-    @apply bg-linear-to-r from-brand-blue via-brand-cyan to-brand-violet bg-clip-text text-transparent;
+    @apply mt-3 text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl;
   }
 
   .form-input {
-    @apply w-full rounded-md border border-brand-blue/20 bg-white px-4 py-3 text-brand-blue outline-none transition placeholder:text-brand-blue/40 focus:border-brand-cyan focus:bg-brand-mist/30 focus:shadow-[0_0_0_3px_rgba(47,227,200,0.16)];
+    @apply w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 outline-none transition-all duration-200 placeholder:text-zinc-400 focus:border-brand-cyan focus:bg-white focus:ring-2 focus:ring-brand-cyan/15;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-linear-to-r from-brand-blue to-brand-cyan px-6 py-4 font-medium text-white shadow-[0_14px_36px_rgba(47,227,200,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_46px_rgba(47,227,200,0.42)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-brand-blue px-6 py-3.5 font-semibold text-white transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-brand-blue/25 bg-white px-6 py-4 font-medium text-brand-blue transition hover:-translate-y-0.5 hover:border-brand-cyan hover:shadow-[0_0_0_1px_rgba(47,227,200,0.3),0_18px_40px_rgba(47,227,200,0.18)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3.5 font-semibold text-white transition-all duration-200 hover:border-brand-cyan/50 hover:text-brand-cyan focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2;
   }
 
   .btn-dark {
-    @apply inline-flex items-center justify-center rounded-md border border-white/10 bg-brand-navy px-6 py-4 font-medium text-white shadow-lift transition hover:-translate-y-0.5 hover:border-brand-cyan/50 hover:shadow-[0_0_0_1px_rgba(47,227,200,0.3),0_18px_40px_rgba(47,227,200,0.22)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-zinc-900 px-6 py-3.5 font-semibold text-white transition-all duration-200 hover:bg-zinc-800 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2;
   }
 
+  .btn-outline {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-zinc-200 px-6 py-3.5 font-semibold text-zinc-900 transition-all duration-200 hover:border-brand-cyan hover:text-brand-cyan focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2;
+  }
+
+  /* cursor-pointer for card links, smooth 200ms per skill recommendation */
   .feature-card {
-    @apply relative overflow-hidden rounded-md border border-brand-blue/10 bg-white p-6 shadow-[0_16px_42px_rgba(40,89,182,0.1)] transition hover:-translate-y-1 hover:border-brand-cyan/40 hover:shadow-[0_0_0_1px_rgba(47,227,200,0.22),0_24px_64px_rgba(40,89,182,0.16)];
-  }
-
-  .feature-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 3px;
-    background-image: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-cyan), var(--color-brand-violet));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .feature-card:hover::before {
-    opacity: 1;
+    @apply cursor-pointer rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
   }
 
   .badge {
-    @apply inline-grid h-10 min-w-10 place-items-center rounded-md border border-brand-blue/15 bg-brand-mist px-3 font-mono text-sm font-medium text-brand-blue;
+    @apply inline-grid h-9 min-w-9 place-items-center rounded-lg bg-zinc-100 px-2.5 font-mono text-xs font-bold text-zinc-500;
   }
 
-  .pill-dark {
-    @apply rounded-md border border-white/10 bg-white/5 px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-brand-sky backdrop-blur;
+  .icon-tile {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand-cyan/10 text-brand-cyan;
   }
 
-  .hero-shell {
-    position: relative;
-    background-color: var(--color-brand-navy);
-    background-image:
-      linear-gradient(90deg, rgba(148, 172, 219, 0.08) 1px, transparent 1px),
-      linear-gradient(rgba(148, 172, 219, 0.08) 1px, transparent 1px),
-      radial-gradient(circle at 88% 16%, rgba(47, 227, 200, 0.22), transparent 42%),
-      radial-gradient(circle at 8% 86%, rgba(124, 92, 255, 0.22), transparent 42%);
-    background-size: 56px 56px, 56px 56px, 100% 100%, 100% 100%;
+  .icon-tile-dark {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white/10 text-white;
+  }
+
+  .img-slot {
+    @apply flex items-center justify-center rounded-xl bg-zinc-100;
+  }
+
+  .img-slot-dark {
+    @apply flex items-center justify-center rounded-xl border border-white/8 bg-white/5;
   }
 
   .surface-grid {
     background-image:
-      linear-gradient(90deg, rgba(40, 89, 182, 0.025) 1px, transparent 1px),
-      linear-gradient(rgba(40, 89, 182, 0.025) 1px, transparent 1px);
-    background-size: 64px 64px;
+      linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
   .surface-grid-dark {
     background-image:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-
-  .glow-orb {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(110px);
-    pointer-events: none;
-  }
-
-  .icon-tile {
-    @apply grid h-12 w-12 shrink-0 place-items-center rounded-md border border-brand-blue/15 bg-brand-mist text-brand-blue;
-  }
-
-  .icon-tile-dark {
-    @apply grid h-12 w-12 shrink-0 place-items-center rounded-md border border-brand-cyan/25 bg-brand-cyan/5 text-brand-cyan;
-  }
-
-  .terminal-window {
-    @apply overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl;
-  }
-
-  .terminal-header {
-    @apply flex items-center gap-1.5 border-b border-white/10 bg-white/[0.03] px-4 py-3;
-  }
-
-  .terminal-dot {
-    @apply h-2.5 w-2.5 rounded-full;
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
