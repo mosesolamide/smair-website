@@ -23,6 +23,16 @@ export const navItems = [
   ["Contact", "/contact"],
 ] as const;
 
+/* ── Wix base URL helper ───────────────────────────────── */
+const wix = (id: string, ext = "jpg", w = 960, h = 640) =>
+  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_${w},h_${h},al_c,q_90,enc_avif,quality_auto/${id}~mv2.${ext}`;
+
+const wix42 = (id: string, ext = "png", w = 960, h = 640) =>
+  `https://static.wixstatic.com/media/42289d_${id}~mv2.${ext}/v1/fill/w_${w},h_${h},al_c,q_90,enc_avif,quality_auto/42289d_${id}~mv2.${ext}`;
+
+const wixb = (id: string, ext = "jpg", w = 800, h = 600) =>
+  `https://static.wixstatic.com/media/b05d35_${id}~mv2.${ext}/v1/fill/w_${w},h_${h},fp_0.50_0.50,q_90,enc_avif,quality_auto/b05d35_${id}~mv2.${ext}`;
+
 export const courses: Course[] = [
   {
     slug: "electronics-basics",
@@ -35,7 +45,7 @@ export const courses: Course[] = [
       "Experience the practical flow of electricity",
       "Learn basic circuit logic",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_58e7c2c60bfd4206bfb9cdd72e934fdc~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_58e7c2c60bfd4206bfb9cdd72e934fdc~mv2.png",
     icon: Zap,
   },
   {
@@ -49,7 +59,7 @@ export const courses: Course[] = [
       "Connect sensors and actuators to control logic",
       "Apply systems thinking to robotics design",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_1ae131c8d7b14223a601e0b08817b02b~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_1ae131c8d7b14223a601e0b08817b02b~mv2.png",
     icon: Brain,
   },
   {
@@ -63,11 +73,11 @@ export const courses: Course[] = [
       "Discover real-world robotics applications",
       "Build creative thinking around robotics design",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_f36da087a4bb405787625c7771923739~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_f36da087a4bb405787625c7771923739~mv2.png",
     icon: Bot,
   },
   {
-    slug: "microcontrollers-%26-coding",
+    slug: "microcontrollers-and-coding",
     title: "Microcontrollers & Coding",
     intro: "Get hands-on with Arduino, connect components, and write your first lines of code to control them.",
     outcomes: [
@@ -77,7 +87,7 @@ export const courses: Course[] = [
       "Control LEDs, buttons, and simple actuators with code",
       "Debug and test code-driven circuits",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_71aef3ccd38d40d293d9cb39b0605791~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_71aef3ccd38d40d293d9cb39b0605791~mv2.png",
     icon: CircuitBoard,
   },
   {
@@ -91,11 +101,11 @@ export const courses: Course[] = [
       "Connect mechanical parts to power and control systems",
       "Test and refine movement and stability",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_69279dcd21b34a13aedfee691f020bd5~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_69279dcd21b34a13aedfee691f020bd5~mv2.png",
     icon: Cog,
   },
   {
-    slug: "sensors-%26-inputs",
+    slug: "sensors-and-inputs",
     title: "Sensors & Inputs",
     intro: "Learn how robots perceive their surroundings using ultrasonic, IR, and other input sensors.",
     outcomes: [
@@ -105,7 +115,7 @@ export const courses: Course[] = [
       "Make decisions based on sensor input",
       "Combine multiple sensors for richer perception",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_5894c6cbd88b4e2ba5c4d40716916bf8~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_5894c6cbd88b4e2ba5c4d40716916bf8~mv2.png",
     icon: Radar,
   },
   {
@@ -119,11 +129,11 @@ export const courses: Course[] = [
       "Develop structured debugging habits",
       "Translate everyday logic into working code",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_d204f1b7c57341f8accac95a707def8b~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_d204f1b7c57341f8accac95a707def8b~mv2.png",
     icon: SquareCode,
   },
   {
-    slug: "communication-%26-signals",
+    slug: "communication-and-signals",
     title: "Communication & Signals in Robotics",
     intro: "Explore how robots communicate with humans and devices using Bluetooth and serial signals.",
     outcomes: [
@@ -133,11 +143,11 @@ export const courses: Course[] = [
       "Interpret signal feedback from connected components",
       "Build simple remote-controlled interactions",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_f4fbf34745e343ff92ce37cbd8bf2aa5~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_f4fbf34745e343ff92ce37cbd8bf2aa5~mv2.png",
     icon: Bluetooth,
   },
   {
-    slug: "automation-%26-ai-basics",
+    slug: "automation-and-ai-basics",
     title: "Automation & AI Basics",
     intro: "Discover how robots make autonomous decisions and solve problems like maze solving or line following.",
     outcomes: [
@@ -147,7 +157,7 @@ export const courses: Course[] = [
       "Get introduced to core AI concepts",
       "Combine sensors and logic for autonomous actions",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_75b7159b981d42b987d402109f60bb92~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_75b7159b981d42b987d402109f60bb92~mv2.png",
     icon: Workflow,
   },
   {
@@ -161,7 +171,7 @@ export const courses: Course[] = [
       "Discuss the role of robotics in defense and safety",
       "Reflect on responsible and ethical innovation",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_d4ca7ec38a724ee4b13c6241dcbc3169~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_d4ca7ec38a724ee4b13c6241dcbc3169~mv2.png",
     icon: Rocket,
   },
   {
@@ -175,101 +185,80 @@ export const courses: Course[] = [
       "Develop pitch storytelling skills",
       "Present a finished product idea with confidence",
     ],
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_7df0e5382671496a96af0cc3d3fe1596~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_7df0e5382671496a96af0cc3d3fe1596~mv2.png",
     icon: Lightbulb,
   },
 ];
 
 export const posts: Post[] = [
   {
-    slug: "a-day-of-innovation-smair-smart-club-project-presentations-by-students-from-straitgate-high-school",
-    title: "A Day of Innovation: SMAIR Smart Club Project Presentations by Students from Straitgate High School",
+    slug: "we-missed-our-flight-home-from-abuja",
+    title: "We Missed Our Flight Home From Abuja… But That Wasn't Even the Craziest Part",
+    date: "May 12, 2026",
+    image: "https://static.wixstatic.com/media/b05d35_ac9463caf89444a89970139df39d2efc~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/b05d35_ac9463caf89444a89970139df39d2efc~mv2.jpg",
+    excerpt: "A field story from the SMAIR journey — full of travel lessons, resilience, and the work behind real impact.",
+  },
+  {
+    slug: "smair-club-presentations-straitgate-nursery",
+    title: "SMAIR Club Project Presentations: Straitgate Nursery & Primary School, Forthright",
     date: "Nov 28, 2025",
-    image: "",
-    excerpt: "Students presented their smart club projects, showing how robotics and AI can move from classroom ideas to working demos.",
+    image: "https://static.wixstatic.com/media/b05d35_c6ca386f76ff4604914dfbfc054c0907~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/b05d35_c6ca386f76ff4604914dfbfc054c0907~mv2.jpg",
+    excerpt: "Students from Straitgate Nursery and Primary School presented their SMAIR Club robotics and AI builds.",
   },
   {
-    slug: "smair-ai-robotics-club-weekly-recap-week-of-may-5-11-2025",
-    title: "SMAIR AI & Robotics Club Weekly Recap: Week of May 5-11, 2025",
-    date: "Jun 20, 2025",
-    image: "",
-    excerpt: "A weekly look at classroom experiments, student teamwork, and the small wins that build technical confidence.",
+    slug: "smair-club-presentations-straitgate-high-school",
+    title: "A Day of Innovation: SMAIR Club Project Presentations by Straitgate High School",
+    date: "Nov 28, 2025",
+    image: "https://static.wixstatic.com/media/b05d35_da624ea3d2084b7a8527eb0e11c0ca27~mv2.png/v1/fill/w_800,h_533,fp_0.50_0.50,q_95,enc_avif,quality_auto/b05d35_da624ea3d2084b7a8527eb0e11c0ca27~mv2.png",
+    excerpt: "Students presented smart club projects showing how robotics and AI can move from classroom ideas to working demos.",
   },
   {
-    slug: "smair-bootcamp-highlights-week-3-coding-and-game-development",
-    title: "SMAIR Bootcamp Highlights Week 3: Coding and Game Development",
-    date: "Aug 22, 2025",
-    image: "",
-    excerpt: "Students translated logic into interactive games while strengthening programming fundamentals.",
-  },
-  {
-    slug: "smair-bootcamp-highlights-week-5-where-big-ideas-become-working-prototypes",
-    title: "SMAIR Bootcamp Highlights Week 5: Where Big Ideas Become Working Prototypes",
-    date: "Aug 24, 2025",
-    image: "",
-    excerpt: "The bootcamp shifted from concepts to prototypes as students tested, refined, and shared their ideas.",
-  },
-  {
-    slug: "empowering-tomorrow-smair-foundation-celebrates-international-day-of-the-girl-child",
-    title: "Empowering Tomorrow: SMAIR Foundation Celebrates International Day of the Girl Child",
+    slug: "international-day-of-the-girl-child",
+    title: "Empowering Tomorrow: SMAIR Celebrates International Day of the Girl Child",
     date: "Nov 6, 2025",
-    image: "",
+    image: "https://static.wixstatic.com/media/42289d_5d70f9ecde904eddaa26616d1f60abd4~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/42289d_5d70f9ecde904eddaa26616d1f60abd4~mv2.jpg",
     excerpt: "SMAIR celebrates girls in technology and the importance of access, mentorship, and early exposure.",
   },
   {
-    slug: "smair-bootcamp-highlights-we-built-coded-and-shared",
-    title: "SMAIR Bootcamp Highlights: We Built, Coded, and Shared",
-    date: "Aug 2, 2025",
-    image: "",
-    excerpt: "A recap of a practical week of building, coding, presenting, and learning through feedback.",
-  },
-  {
-    slug: "we-missed-our-flight-home-from-abuja-but-that-wasn-t-even-the-craziest-part",
-    title: "We Missed Our Flight Home from Abuja, But That Wasn't Even the Craziest Part",
-    date: "May 12, 2026",
-    image: "",
-    excerpt: "A field story from the SMAIR journey, full of travel lessons, resilience, and the work behind impact.",
-  },
-  {
-    slug: "a-day-of-innovation-smair-club-project-presentations-by-students-from-straitgate-nursery-and-primary-school-forthright",
-    title: "A Day of Innovation: SMAIR Club Project Presentations by Students from Straitgate Nursery and Primary School, Forthright",
-    date: "Nov 28, 2025",
-    image: "",
-    excerpt: "Students from Straitgate Nursery and Primary School, Forthright, presented their SMAIR Club projects, showcasing robotics and AI builds developed through hands-on club sessions.",
-  },
-  {
-    slug: "smair-bootcamp-week-5-highlights-the-final-push",
-    title: "SMAIR Bootcamp Week 5 Highlights: The Final Push🎉",
+    slug: "bootcamp-week-5-final-push",
+    title: "SMAIR Bootcamp Week 5: The Final Push 🎉",
     date: "Sep 1, 2025",
-    image: "",
-    excerpt: "In the final week of the bootcamp, students pushed their prototypes across the finish line, polishing builds, presentations, and the lessons that carry forward into SMAIR Club.",
+    image: "https://static.wixstatic.com/media/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg",
+    excerpt: "In the final week students pushed prototypes to the finish line — polishing builds, presentations, and lessons.",
+  },
+  {
+    slug: "bootcamp-week-4-working-prototypes",
+    title: "Bootcamp Week 4 – Where Big Ideas Become Working Prototypes 🚀",
+    date: "Aug 23, 2025",
+    image: "https://static.wixstatic.com/media/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png/v1/fill/w_800,h_533,fp_0.50_0.50,q_95,enc_avif,quality_auto/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png",
+    excerpt: "Students translated big ideas into working prototypes, iterating through builds and feedback.",
   },
 ];
 
 export const events: EventItem[] = [
   {
+    slug: "july-bootcamp",
+    title: "July Bootcamp",
+    date: "July 2025",
+    venue: "SMAIR Bootcamp Hub",
+    image: "https://static.wixstatic.com/media/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg/v1/fill/w_800,h_450,al_c,q_90,enc_avif,quality_auto/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg",
+    summary: "A 5-week intensive where students built, coded, and presented real robotics and AI projects from scratch.",
+  },
+  {
+    slug: "smair-club-presentations",
+    title: "SMAIR Club Project Presentations",
+    date: "Nov 28, 2025",
+    venue: "Straitgate Schools, Lagos",
+    image: "https://static.wixstatic.com/media/b05d35_c6ca386f76ff4604914dfbfc054c0907~mv2.jpg/v1/fill/w_800,h_450,fp_0.50_0.50,q_90,enc_avif,quality_auto/b05d35_c6ca386f76ff4604914dfbfc054c0907~mv2.jpg",
+    summary: "Students from partner schools showcased robotics and AI club projects built during weekly SMAIR Club sessions.",
+  },
+  {
     slug: "breakfast-with-smair",
     title: "Breakfast with SMAIR",
     date: "Community event",
-    venue: "SMAIR community",
-    image: "",
+    venue: "SMAIR Community",
+    image: "https://static.wixstatic.com/media/42289d_5d70f9ecde904eddaa26616d1f60abd4~mv2.jpg/v1/fill/w_800,h_450,fp_0.50_0.50,q_90,enc_avif,quality_auto/42289d_5d70f9ecde904eddaa26616d1f60abd4~mv2.jpg",
     summary: "A morning gathering for families, partners, mentors, and learners to connect around technology education.",
-  },
-  {
-    slug: "choosequality-formal-dinner-1",
-    title: "#ChooseQuality Formal Dinner",
-    date: "Formal dinner",
-    venue: "Partner event",
-    image: "",
-    summary: "A partner-focused event celebrating education quality, collaboration, and youth development.",
-  },
-  {
-    slug: "july-bootcamp-1",
-    title: "July Bootcamp",
-    date: "July Bootcamp",
-    venue: "SMAIR Bootcamp",
-    image: "",
-    summary: "A practical bootcamp where students build, code, test, and present technology projects.",
   },
 ];
 
@@ -308,29 +297,39 @@ export const team: TeamMember[] = [
 
 export const volunteers = ["Amobi Ndubuisi", "Chiedozie Obidile", "Faith Amarachi", "Victor Duru"];
 
+/* Gallery images from the About/activity pages */
 export const sampleImages: GalleryImage[] = [
   {
-    src: "",
-    label: "SMAIR technology banner",
+    src: "https://static.wixstatic.com/media/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg/v1/fit/w_960,h_640,q_90,enc_avif,quality_auto/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg",
+    label: "SMAIR students at work",
   },
   {
-    src: "",
-    label: "Robotics program moment",
+    src: "https://static.wixstatic.com/media/3b80ec_309b3d8c1cc8494b950b15d11c22a0cd~mv2.jpg/v1/fit/w_960,h_647,q_90,enc_avif,quality_auto/3b80ec_309b3d8c1cc8494b950b15d11c22a0cd~mv2.jpg",
+    label: "Robotics programme moment",
   },
   {
-    src: "",
+    src: "https://static.wixstatic.com/media/3b80ec_8427b8bb057a43cea03da1a4b48c5ccb~mv2.jpg/v1/fit/w_960,h_649,q_90,enc_avif,quality_auto/3b80ec_8427b8bb057a43cea03da1a4b48c5ccb~mv2.jpg",
     label: "Students and mentors",
   },
   {
-    src: "",
-    label: "Hands-on learning",
+    src: "https://static.wixstatic.com/media/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg",
+    label: "Bootcamp Week 5",
   },
   {
-    src: "",
-    label: "Classroom innovation",
+    src: "https://static.wixstatic.com/media/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png/v1/fill/w_800,h_533,fp_0.50_0.50,q_95,enc_avif,quality_auto/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png",
+    label: "Working Prototypes — Week 4",
   },
   {
-    src: "",
-    label: "SMAIR workshop",
+    src: "https://static.wixstatic.com/media/3b80ec_5c03e3726146499f88c6dc43df9f6d14~mv2.jpg/v1/fit/w_480,h_285,q_90,enc_avif,quality_auto/3b80ec_5c03e3726146499f88c6dc43df9f6d14~mv2.jpg",
+    label: "Hands-on learning session",
   },
 ];
+
+/* Hero side images for the home page */
+export const heroImages = {
+  left: "https://static.wixstatic.com/media/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg/v1/fit/w_960,h_640,q_90,enc_avif,quality_auto/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg",
+  right: "https://static.wixstatic.com/media/42289d_1ae131c8d7b14223a601e0b08817b02b~mv2.png/v1/fill/w_960,h_640,al_c,q_90,enc_avif,quality_auto/42289d_1ae131c8d7b14223a601e0b08817b02b~mv2.png",
+};
+
+// suppress unused-variable warnings for helper fns
+void wix; void wix42; void wixb;

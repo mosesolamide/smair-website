@@ -8,7 +8,7 @@ import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { Hero } from "../components/Hero";
 import { Reveal, cardVariants, staggerVariants, viewport } from "../components/motion";
-import { events } from "../data/siteData";
+import { events, heroImages } from "../data/siteData";
 
 const MotionLink = motion.create(Link);
 
@@ -18,6 +18,8 @@ export function Home() {
       <Hero
         title="Your AI & Robotics Learning Solution."
         text="Every lesson, robot, and line of code we deliver unlocks a learner's power to imagine, create, and lead in a world that's changing faster than ever."
+        leftImage={heroImages.left}
+        rightImage={heroImages.right}
       >
         <Link to="/courses" className="btn-primary gap-2 px-7 py-4 text-base">
           Explore Courses

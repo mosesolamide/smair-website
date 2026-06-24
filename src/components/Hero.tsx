@@ -3,21 +3,24 @@ import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { revealVariants } from "./motion";
 
+/* Three.js background canvas — lazy so it doesn't block paint */
 const HeroCanvas = lazy(() => import("./HeroCanvas").then((m) => ({ default: m.HeroCanvas })));
 
 type HeroProps = {
   title: string;
   text: string;
   image?: string;
+  leftImage?: string;
+  rightImage?: string;
   children?: React.ReactNode;
 };
 
-export function Hero({ title, text, image, children }: HeroProps) {
+export function Hero({ title, text, image, leftImage, rightImage, children }: HeroProps) {
   const isHome = !!children;
 
   return (
     <section className="relative overflow-hidden bg-white pt-[70px]">
-      {/* Three.js animated wireframe shapes — loaded lazily so Three.js doesn't block initial render */}
+      {/* Subtle Three.js particle background */}
       <Suspense fallback={null}>
         <HeroCanvas />
       </Suspense>
@@ -25,18 +28,30 @@ export function Hero({ title, text, image, children }: HeroProps) {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
           <div className="grid min-h-[90vh] items-center py-12">
-            <div className="grid items-end gap-8 lg:grid-cols-[200px_1fr_200px]">
-              {/* Left image slot */}
+            <div className="grid items-end gap-8 lg:grid-cols-[220px_1fr_220px]">
+
+              {/* Left floating image */}
               <motion.div
-                className="hidden lg:flex lg:items-end"
+                className="hidden lg:block"
                 initial={{ opacity: 0, x: -24 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
               >
-                <div className="img-slot w-full rounded-2xl" style={{ aspectRatio: "3/4" }} />
+                <div className="hero-float" style={{ animationDelay: "0s" }}>
+                  {leftImage ? (
+                    <img
+                      src={leftImage}
+                      alt="SMAIR students in action"
+                      className="w-full rounded-2xl object-cover shadow-xl"
+                      style={{ aspectRatio: "3/4" }}
+                    />
+                  ) : (
+                    <div className="img-slot w-full rounded-2xl shadow-xl" style={{ aspectRatio: "3/4" }} />
+                  )}
+                </div>
               </motion.div>
 
-              {/* Center — massive headline */}
+              {/* Center headline */}
               <motion.div
                 className="text-center"
                 initial="hidden"
@@ -58,14 +73,25 @@ export function Hero({ title, text, image, children }: HeroProps) {
                 </div>
               </motion.div>
 
-              {/* Right image slot */}
+              {/* Right floating image */}
               <motion.div
-                className="hidden lg:flex lg:items-end lg:justify-end"
+                className="hidden lg:flex lg:justify-end"
                 initial={{ opacity: 0, x: 24 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
               >
-                <div className="img-slot w-full rounded-2xl" style={{ aspectRatio: "3/4" }} />
+                <div className="hero-float w-full" style={{ animationDelay: "1.2s" }}>
+                  {rightImage ? (
+                    <img
+                      src={rightImage}
+                      alt="SMAIR robotics programme"
+                      className="w-full rounded-2xl object-cover shadow-xl"
+                      style={{ aspectRatio: "3/4" }}
+                    />
+                  ) : (
+                    <div className="img-slot w-full rounded-2xl shadow-xl" style={{ aspectRatio: "3/4" }} />
+                  )}
+                </div>
               </motion.div>
             </div>
 
@@ -81,7 +107,7 @@ export function Hero({ title, text, image, children }: HeroProps) {
             </div>
           </div>
         ) : (
-          /* Inner page hero — compact, centered */
+          /* Inner page hero */
           <div className="py-16 text-center sm:py-20">
             <motion.div
               initial="hidden"
@@ -95,6 +121,14 @@ export function Hero({ title, text, image, children }: HeroProps) {
               <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
                 {title}
               </h1>
+              {image && (
+                <img
+                  src={image}
+                  alt=""
+                  className="mx-auto mt-8 w-full max-w-2xl rounded-2xl object-cover shadow-md"
+                  style={{ aspectRatio: "16/7" }}
+                />
+              )}
               <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-500">
                 {text}
               </p>
@@ -103,7 +137,7 @@ export function Hero({ title, text, image, children }: HeroProps) {
         )}
       </div>
 
-      {/* Thin gradient accent bar at bottom */}
+      {/* Brand gradient accent bar */}
       <div className="h-[3px] w-full bg-linear-to-r from-brand-blue via-brand-cyan to-brand-violet" />
     </section>
   );

@@ -33,6 +33,15 @@ h1, h2, h3, h4, h5, h6 {
 
 html { scroll-behavior: smooth; }
 
+/* Hero image float animation */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+.hero-float {
+  animation: heroFloat 5s ease-in-out infinite;
+}
+
 body {
   margin: 0;
   background: #ffffff;
