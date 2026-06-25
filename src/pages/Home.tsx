@@ -8,7 +8,7 @@ import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { Hero } from "../components/Hero";
 import { Reveal, cardVariants, staggerVariants, viewport } from "../components/motion";
-import { events, heroImages } from "../data/siteData";
+import { events, heroImages, sampleImages } from "../data/siteData";
 
 const MotionLink = motion.create(Link);
 
@@ -76,7 +76,7 @@ const pillars = [
 
 function FourPillars() {
   return (
-    <section className="bg-brand-surface py-20 sm:py-24">
+    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="text-center">
           <p className="section-kicker justify-center">Our Solution</p>
@@ -98,7 +98,7 @@ function FourPillars() {
           {pillars.map(({ icon: Icon, color, title, desc, badge }) => (
             <motion.div
               key={title}
-              className="flex flex-col gap-4 rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+              className="flex flex-col gap-4 rounded-lg border border-white bg-white/90 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-sky/70 hover:shadow-md"
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
@@ -109,7 +109,7 @@ function FourPillars() {
                 <h3 className="text-lg font-black text-zinc-900">{title}</h3>
                 <p className="mt-2 text-sm leading-6 text-zinc-500">{desc}</p>
               </div>
-              <span className="mt-auto inline-flex items-center gap-1.5 rounded-full bg-brand-blue/8 px-3 py-1.5 text-xs font-bold text-brand-blue">
+              <span className="mt-auto inline-flex items-center gap-1.5 rounded-lg bg-brand-blue/8 px-3 py-1.5 text-xs font-bold text-brand-blue">
                 <Star className="h-3 w-3" />
                 {badge}
               </span>
@@ -182,15 +182,15 @@ function ProgramLevels() {
           {levels.map(({ tag, ages, tagline, desc, tools, accent, tagBg, badgeBg, cta }) => (
             <motion.div
               key={tag}
-              className={`flex flex-col rounded-2xl border-2 bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${accent}`}
+              className={`flex flex-col rounded-lg border-2 bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ${accent}`}
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
               <div className="flex items-center justify-between">
-                <span className={`rounded-full px-3 py-1 text-xs font-black uppercase tracking-widest ${tagBg}`}>
+                <span className={`rounded-lg px-3 py-1 text-xs font-black uppercase tracking-widest ${tagBg}`}>
                   {tag}
                 </span>
-                <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-500">
+                <span className="rounded-lg bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-500">
                   {ages}
                 </span>
               </div>
@@ -241,7 +241,7 @@ const quotes = [
 
 function Testimonials() {
   return (
-    <section className="bg-brand-surface py-20 sm:py-24">
+    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="text-center">
           <p className="section-kicker justify-center">Testimonials</p>
@@ -260,7 +260,7 @@ function Testimonials() {
           {quotes.map(({ text, name, role }) => (
             <motion.div
               key={name}
-              className="flex flex-col gap-5 rounded-2xl border border-zinc-100 bg-white p-7 shadow-sm"
+              className="flex flex-col gap-5 rounded-lg border border-white bg-white/90 p-7 shadow-sm"
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
@@ -293,11 +293,11 @@ const trainingFeatures = [
 
 function Training() {
   return (
-    <section className="bg-brand-navy py-20 sm:py-24">
+    <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <div className="img-slot-dark aspect-4/3 w-full">
-            <p className="font-mono text-sm text-white/20">Photo coming soon</p>
+          <div className="image-frame aspect-4/3 w-full">
+            <img src={sampleImages[0].src} alt="SMAIR students learning robotics" className="h-full w-full object-cover" />
           </div>
         </Reveal>
 
@@ -350,7 +350,7 @@ function ImpactStrip() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid divide-y divide-zinc-100 overflow-hidden rounded-2xl border border-zinc-100 shadow-sm sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <div className="mt-12 grid divide-y divide-zinc-100 overflow-hidden rounded-lg border border-zinc-100 shadow-sm sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {stats.map(({ icon: Icon, value, label, color }) => (
             <Reveal key={label} className="flex flex-col items-center gap-2 bg-white p-10 text-center">
               <Icon className={`h-7 w-7 ${color}`} />
@@ -367,7 +367,7 @@ function ImpactStrip() {
 /* ─── 6. Events ─────────────────────────────────────────────── */
 function Events() {
   return (
-    <section className="bg-brand-surface py-20 sm:py-24">
+    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -388,7 +388,7 @@ function Events() {
             <MotionLink
               key={event.slug}
               to={`/event-details/${event.slug}`}
-              className="group overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+              className="group overflow-hidden rounded-lg border border-white bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
@@ -443,7 +443,7 @@ function Partners() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="rounded-2xl bg-brand-navy p-8 text-white">
+            <div className="surface-grid-dark rounded-lg bg-brand-navy p-8 text-white shadow-[0_24px_60px_rgba(9,13,31,0.2)]">
               <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/10">
                 <Youtube className="h-6 w-6 text-white" />
               </span>
