@@ -325,6 +325,28 @@ export const sampleImages: GalleryImage[] = [
   },
 ];
 
+/* Collaborator / partner logos */
+export const collaborators = [
+  {
+    name: "TechSplicit",
+    tagline: "Journalism with Integrity",
+    logo: "https://static.wixstatic.com/media/3b80ec_e4f03057f8a6497e819ec63113b3c321~mv2.png/v1/fill/w_400,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3b80ec_e4f03057f8a6497e819ec63113b3c321~mv2.png",
+    href: "https://techsplicit.com",
+  },
+  {
+    name: "Mechatron Robotics",
+    tagline: "Hardware & Robotics Kits",
+    logo: "https://static.wixstatic.com/media/3b80ec_e2a44063ece84fca8ba20a8850470ca8~mv2.jpg/v1/fill/w_400,h_180,al_c,q_90,enc_avif,quality_auto/3b80ec_e2a44063ece84fca8ba20a8850470ca8~mv2.jpg",
+    href: "#",
+  },
+  {
+    name: "AI & Robotics Innovation Hub",
+    tagline: "AIR Innovation Hub",
+    logo: "https://static.wixstatic.com/media/42289d_662e4498833d49bc860fc03fd9919584~mv2.png/v1/fill/w_400,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/42289d_662e4498833d49bc860fc03fd9919584~mv2.png",
+    href: "#",
+  },
+];
+
 /* Hero side images for the home page */
 export const heroImages = {
   left: "https://static.wixstatic.com/media/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg/v1/fit/w_960,h_640,q_90,enc_avif,quality_auto/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg",

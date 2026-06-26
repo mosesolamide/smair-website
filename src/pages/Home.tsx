@@ -8,7 +8,7 @@ import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { Hero } from "../components/Hero";
 import { Reveal, cardVariants, staggerVariants, viewport } from "../components/motion";
-import { events, heroImages, sampleImages } from "../data/siteData";
+import { collaborators, events, heroImages, sampleImages } from "../data/siteData";
 
 const MotionLink = motion.create(Link);
 
@@ -80,7 +80,7 @@ function FourPillars() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="text-center">
           <p className="section-kicker justify-center">Our Solution</p>
-          <h2 className="section-title mx-auto max-w-2xl">
+          <h2 className="section-title mx-auto max-w-4xl">
             Everything young innovators need in one place.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-500">
@@ -415,53 +415,80 @@ function Events() {
   );
 }
 
-/* ─── 7. Partners / YouTube CTA ─────────────────────────────── */
+/* ─── 7. Collaborators ───────────────────────────────────────── */
 function Partners() {
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <p className="section-kicker">Collaborators</p>
-            <h2 className="section-title">
-              Working alongside hubs, schools, and mentors.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-zinc-500">
-              SMAIR partners with the AIR Innovation Hub and a growing network of schools
-              to bring hands-on robotics and AI learning directly to students and classrooms.
-            </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {["AIR Innovation Hub", "Partner Schools", "Community Mentors", "Families & Sponsors"].map(
-                (p) => (
-                  <div key={p} className="flex items-center gap-3 rounded-xl border border-zinc-200 bg-white px-5 py-4 text-sm font-semibold text-zinc-700">
-                    <span className="h-2 w-2 rounded-full bg-brand-cyan" />
-                    {p}
-                  </div>
-                )
-              )}
-            </div>
-          </Reveal>
 
-          <Reveal delay={0.08}>
-            <div className="surface-grid-dark rounded-lg bg-brand-navy p-8 text-white shadow-[0_24px_60px_rgba(9,13,31,0.2)]">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/10">
-                <Youtube className="h-6 w-6 text-white" />
+        {/* Logo strip */}
+        <Reveal className="text-center">
+          <p className="section-kicker justify-center">Our Collaborators</p>
+          <h2 className="section-title mx-auto max-w-2xl">
+            Working alongside hubs, schools, and media partners.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-500">
+            SMAIR partners with leading organisations to bring robotics and AI education to every student.
+          </p>
+        </Reveal>
+
+        <motion.div
+          className="mt-12 grid gap-6 sm:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={staggerVariants}
+        >
+          {collaborators.map(({ name, tagline, logo, href }) => (
+            <motion.a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-100 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-md"
+              variants={cardVariants}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <div className="flex h-24 items-center justify-center">
+                <img
+                  src={logo}
+                  alt={name}
+                  className="max-h-16 w-auto max-w-45 object-contain transition-all duration-300 grayscale group-hover:grayscale-0"
+                />
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-black text-zinc-900">{name}</p>
+                <p className="text-xs text-zinc-400">{tagline}</p>
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* YouTube CTA */}
+        <Reveal className="mt-12">
+          <div className="surface-grid-dark flex flex-col gap-6 rounded-xl bg-brand-navy p-8 text-white shadow-[0_24px_60px_rgba(9,13,31,0.2)] sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-5">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white/10">
+                <Youtube className="h-7 w-7 text-white" />
               </span>
-              <h3 className="mt-5 text-2xl font-black">Watch SMAIR in action</h3>
-              <p className="mt-3 text-zinc-400">
-                See bootcamps, club projects, and student builds on the SMAIR YouTube channel.
-              </p>
-              <a
-                href="https://www.youtube.com/@smairfoundation"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary mt-6 inline-flex"
-              >
-                Subscribe on YouTube
-              </a>
+              <div>
+                <h3 className="text-xl font-black">Watch SMAIR in action</h3>
+                <p className="mt-1 text-sm text-zinc-400">
+                  Bootcamps, club projects, and student builds — all on YouTube.
+                </p>
+              </div>
             </div>
-          </Reveal>
-        </div>
+            <a
+              href="https://www.youtube.com/@smairfoundation"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary shrink-0"
+            >
+              Subscribe on YouTube
+            </a>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );
