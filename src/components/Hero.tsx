@@ -34,9 +34,6 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
               variants={revealVariants}
               transition={{ duration: 0.55, ease: "easeOut" }}
             >
-              <span className="inline-flex items-center gap-2 rounded-lg border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-brand-cyan">
-                SMAIR Foundation
-              </span>
               <h1 className="mt-6 text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-[5.35rem]">
                 {title}
               </h1>
@@ -45,19 +42,7 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 {children}
-              </div>
-              <div className="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-white/10 rounded-lg border border-white/10 bg-white/[0.06]">
-                {[
-                  ["25+", "students"],
-                  ["5+", "schools"],
-                  ["50+", "workshops"],
-                ].map(([value, label]) => (
-                  <div key={label} className="px-4 py-4">
-                    <p className="font-display text-3xl font-black text-white">{value}</p>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-white/45">{label}</p>
-                  </div>
-                ))}
-              </div>
+              </div> 
             </motion.div>
 
             <div className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr] lg:min-h-[560px] lg:items-end">
@@ -106,15 +91,6 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
               </motion.div>
             </div>
 
-            <div className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 justify-center lg:flex">
-              <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-zinc-200 pt-1.5">
-                <motion.div
-                  className="h-1.5 w-1 rounded-full bg-brand-cyan"
-                  animate={{ y: [0, 7, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-                />
-              </div>
-            </div>
           </div>
         ) : (
           /* Inner page hero */
@@ -125,9 +101,6 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
               variants={revealVariants}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-brand-blue/20 bg-brand-blue/5 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-brand-blue">
-                SMAIR Foundation
-              </span>
               <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight text-zinc-900 sm:text-5xl lg:text-6xl">
                 {title}
               </h1>
@@ -147,7 +120,6 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
         )}
       </div>
 
-      <div className="h-[3px] w-full bg-linear-to-r from-brand-blue via-brand-cyan to-brand-violet" />
     </section>
   );
 }

@@ -445,7 +445,7 @@ function Partners() {
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="group flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-100 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-md"
+              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-100 bg-white p-8 shadow-sm"
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
@@ -453,7 +453,7 @@ function Partners() {
                 <img
                   src={logo}
                   alt={name}
-                  className="max-h-16 w-auto max-w-45 object-contain transition-all duration-300 grayscale group-hover:grayscale-0"
+                  className="max-h-16 w-auto max-w-45 object-contain"
                 />
               </div>
               <div className="text-center">
