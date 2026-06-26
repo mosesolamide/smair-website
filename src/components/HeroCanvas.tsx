@@ -49,7 +49,7 @@ export function HeroCanvas() {
     geo.setAttribute("size",     new THREE.BufferAttribute(sizes, 1));
 
     const mat = new THREE.PointsMaterial({
-      color: 0x7c5cff,
+      color: 0xffffff,
       size: 0.35,
       sizeAttenuation: true,
       transparent: true,
@@ -61,7 +61,7 @@ export function HeroCanvas() {
 
     /* ── Connection lines ─────────────────────────────── */
     const lineMat = new THREE.LineBasicMaterial({
-      color: 0x2859b6,
+      color: 0x0225c4,
       transparent: true,
       opacity: 0.12,
     });

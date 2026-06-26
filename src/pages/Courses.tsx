@@ -48,7 +48,7 @@ export function Courses() {
         title="Powered by AI & Robotics Innovation Hub."
         text="SMAIR Foundation sponsors access to practical technology education and helps democratize 21st-century skills."
       />
-      <section className="bg-zinc-50 py-20 sm:py-24">
+      <section className="surface-grid bg-brand-surface py-20 sm:py-24">
         <motion.div
           className="mx-auto grid max-w-7xl gap-5 px-5 sm:px-8 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
@@ -79,7 +79,7 @@ export function Project({ course }: { course: Course }) {
             <p className="section-kicker mt-5">Outcomes</p>
             <h2 className="section-title">What students learn in {course.title}.</h2>
             <Link to="/courses" className="mt-8 inline-flex btn-outline">
-              ← Back to Courses
+              &lt;- Back to Courses
             </Link>
           </Reveal>
           <motion.div
@@ -103,7 +103,7 @@ export function Project({ course }: { course: Course }) {
           </motion.div>
         </div>
       </section>
-      <section className="bg-zinc-50 py-20 sm:py-24">
+      <section className="surface-grid bg-brand-surface py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <p className="section-kicker">About This Course</p>
@@ -120,7 +120,7 @@ export function Project({ course }: { course: Course }) {
               Join SMAIR Club
             </Link>
           </Reveal>
-          <Reveal delay={0.08} className="rounded-xl border border-zinc-100 bg-white p-8 shadow-sm">
+          <Reveal delay={0.08} className="soft-card p-8">
             <p className="section-kicker">Reach SMAIR</p>
             <h3 className="mt-3 text-2xl font-bold text-zinc-900">Questions about this course?</h3>
             <div className="mt-5 grid gap-2.5 text-sm text-zinc-500">
