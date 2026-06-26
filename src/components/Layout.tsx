@@ -13,7 +13,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/90 shadow-[0_10px_30px_rgba(9,13,31,0.06)] backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white shadow-[0_10px_30px_rgba(9,13,31,0.06)] backdrop-blur-xl">
       <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center" aria-label="SMAIR home">
           <img src="/smair-logo.png" alt="SMAIR Foundation" className="h-11 w-auto" />
