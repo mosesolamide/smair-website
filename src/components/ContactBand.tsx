@@ -8,8 +8,12 @@ export function ContactBand() {
           <div>
             <p className="section-kicker">Get Involved</p>
             <h2 className="mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-              Join the community.
+              Learners, educators, innovators, schools, and partners all belong here.
             </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-white/60">
+              Join a community making AI, robotics, and creative technology education
+              accessible to every young mind.
+            </p>
           </div>
           <Link to="/contact" className="btn-primary shrink-0">
             Join the Community

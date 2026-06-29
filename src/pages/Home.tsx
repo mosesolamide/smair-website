@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ChevronRight, Lightbulb, Youtube } from "lucide-react";
+import { CalendarDays, ChevronRight, Lightbulb, MapPin, Youtube } from "lucide-react";
 import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
+import { ContactForm } from "../components/ContactForm";
 import { Reveal, cardVariants, revealVariants, staggerVariants, viewport } from "../components/motion";
 import { collaborators, events, sampleImages } from "../data/siteData";
 
@@ -14,53 +15,62 @@ export function Home() {
       <OurProgramsSection />
       <OurVisionSection />
       <LatestUpdatesSection />
+      <ContactBand />
       <SmairClubSection />
       <YouTubeSection />
+      <WorkshopsSection />
       <StatsSection />
       <TestimonialsSection />
       <CollaboratorsSection />
-      <ContactBand />
+      <HomeContactSection />
     </>
   );
 }
 
 /* ─── Hero — full-width background image, centred overlay text ── */
-const heroBg =
+const heroVideo =
+  "https://video.wixstatic.com/video/3b80ec_419e4f9f64fb4df0b336ccd6cc6b51a0/720p/mp4/file.mp4";
+const heroPoster =
   "https://static.wixstatic.com/media/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_avif,quality_auto/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg";
 
 function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-[70px]">
-      <img
-        src={heroBg}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        loading="eager"
-      />
-      <div className="absolute inset-0 bg-brand-navy/65" />
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-[70px]">
+      <video
+        className="absolute inset-0 -z-30 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroPoster}
+        aria-hidden="true"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 -z-10 bg-black/60" />
 
-      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center text-white sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 text-center text-white sm:px-8">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={revealVariants}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-6xl">
-            Discover the World of<br className="hidden sm:block" /> AI and Robotics
-          </h1>
-          <p className="mt-5 text-sm font-bold uppercase tracking-[0.3em] text-white/75">
-            Learn &nbsp;&middot;&nbsp; Build &nbsp;&middot;&nbsp; Create
+          <p className="mb-6 text-base font-bold uppercase tracking-[0.24em] text-white sm:text-lg">
+            Discover the world of AI and robotics
           </p>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/80">
+          <h1 className="mx-auto max-w-6xl text-6xl font-black uppercase leading-[0.9] text-white sm:text-8xl lg:text-[7.5rem]">
+            Learn, Build,<br /><span className="text-brand-blue">Create</span>
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-8 text-white/85 sm:text-2xl">
             Join us in shaping the future of technology.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link to="/courses" className="btn-primary px-8 py-4 text-base">
               Explore Courses
             </Link>
-            <Link to="/contact" className="btn-secondary px-8 py-4 text-base">
-              Get Involved
+            <Link to="/about" className="btn-secondary px-8 py-4 text-base">
+              Discover SMAIR
             </Link>
           </div>
         </motion.div>
@@ -266,9 +276,28 @@ function YouTubeSection() {
             rel="noreferrer"
             className="btn-primary shrink-0"
           >
-            Subscribe on YouTube
+            Subscribe — It's Free!
           </a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function WorkshopsSection() {
+  return (
+    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal className="text-center">
+          <p className="section-kicker justify-center">Upcoming Workshops & Seminars</p>
+          <h2 className="section-title mx-auto max-w-3xl">Learn, connect, and build with us.</h2>
+        </Reveal>
+        <Reveal className="mx-auto mt-12 max-w-3xl rounded-3xl border border-dashed border-brand-blue/25 bg-white px-6 py-14 text-center shadow-sm">
+          <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue"><CalendarDays className="h-8 w-8" /></span>
+          <h3 className="mt-6 text-2xl font-black text-brand-navy">No events at the moment</h3>
+          <p className="mx-auto mt-3 max-w-lg leading-7 text-zinc-500">New sessions are being planned. Contact us to bring a SMAIR workshop to your school.</p>
+          <Link to="/contact" className="btn-outline mt-7">Register your interest</Link>
+        </Reveal>
       </div>
     </section>
   );
@@ -414,6 +443,23 @@ function CollaboratorsSection() {
             </motion.a>
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function HomeContactSection() {
+  return (
+    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <Reveal>
+          <p className="section-kicker">Contact Us</p>
+          <h2 className="section-title">Let's build the future together.</h2>
+          <p className="mt-5 text-lg leading-8 text-zinc-600">Whether you are a learner, educator, school, innovator, or partner, we would like to hear from you.</p>
+          <div className="mt-8 flex gap-4 text-sm leading-6 text-zinc-600"><MapPin className="h-5 w-5 shrink-0 text-brand-blue" /><p>1B Ibitayo Street, Off Adekunle Banjo Avenue,<br />Magodo GRA II, Lagos</p></div>
+          <div className="mt-6 grid gap-3 text-sm font-bold"><a href="tel:+2349161771271" className="text-brand-navy">+234 916-177-1271</a><a href="mailto:info@smairfoundation.com" className="text-brand-blue">info@smairfoundation.com</a></div>
+        </Reveal>
+        <Reveal delay={0.08}><ContactForm /></Reveal>
       </div>
     </section>
   );
