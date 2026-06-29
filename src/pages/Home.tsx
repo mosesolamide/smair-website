@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {
   BookOpen, Bot, Brain, ChevronRight,
   GraduationCap, Lightbulb, Play,
-  Rocket, School, Star, Users, Youtube, Zap,
+  School, Star, Users, Youtube, Zap,
 } from "lucide-react";
 import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
@@ -16,8 +16,9 @@ export function Home() {
   return (
     <>
       <Hero
-        title="Your AI & Robotics Learning Solution."
-        text="Every lesson, robot, and line of code we deliver unlocks a learner's power to imagine, create, and lead in a world that's changing faster than ever."
+        title="Discover the World of AI and Robotics"
+        text="Join us in shaping the future of technology."
+        kicker="Learn · Build · Create"
         leftImage={heroImages.left}
         rightImage={heroImages.right}
       >
@@ -79,12 +80,12 @@ function FourPillars() {
     <section className="surface-grid bg-brand-surface py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="text-center">
-          <p className="section-kicker justify-center">Our Solution</p>
+          <p className="section-kicker justify-center">Our Programs</p>
           <h2 className="section-title mx-auto max-w-4xl">
-            Everything young innovators need in one place.
+            Robotics and programming for ages 8 and above.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-500">
-            Locally built, globally recognised — four pillars of hands-on technology learning.
+            Immersive learning experiences that inspire creativity and innovation in every student.
           </p>
         </Reveal>
 
@@ -333,10 +334,9 @@ function Training() {
 
 /* ─── 5. Impact strip ───────────────────────────────────────── */
 const stats = [
-  { icon: Users,         value: "25+",  label: "Students Impacted",    color: "text-brand-cyan" },
-  { icon: School,        value: "5+",   label: "School Partnerships",   color: "text-brand-violet" },
-  { icon: Rocket,        value: "50+",  label: "Workshops Delivered",   color: "text-brand-cyan" },
-  { icon: GraduationCap, value: "45+",  label: "Educator Endorsements", color: "text-brand-violet" },
+  { icon: Users,  value: "25+", label: "Students Impacted",  color: "text-brand-cyan" },
+  { icon: Star,   value: "45+", label: "Recommendations",    color: "text-brand-violet" },
+  { icon: School, value: "5+",  label: "School Partnerships", color: "text-brand-cyan" },
 ];
 
 function ImpactStrip() {
@@ -350,7 +350,7 @@ function ImpactStrip() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid divide-y divide-zinc-100 overflow-hidden rounded-lg border border-zinc-100 shadow-sm sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <div className="mt-12 grid divide-y divide-zinc-100 overflow-hidden rounded-lg border border-zinc-100 shadow-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {stats.map(({ icon: Icon, value, label, color }) => (
             <Reveal key={label} className="flex flex-col items-center gap-2 bg-white p-10 text-center">
               <Icon className={`h-7 w-7 ${color}`} />
@@ -472,9 +472,9 @@ function Partners() {
                 <Youtube className="h-7 w-7 text-white" />
               </span>
               <div>
-                <h3 className="text-xl font-black">Watch SMAIR in action</h3>
+                <h3 className="text-xl font-black">YouTube Tutorials</h3>
                 <p className="mt-1 text-sm text-zinc-400">
-                  Bootcamps, club projects, and student builds — all on YouTube.
+                  Free AI and robotics content — bootcamps, club projects, and student builds.
                 </p>
               </div>
             </div>

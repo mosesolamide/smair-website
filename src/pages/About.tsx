@@ -22,9 +22,23 @@ export function About() {
   return (
     <>
       <Hero
-        title="A non-profit AI and robotics organization for young builders."
-        text="SMAIR Foundation gives students aged 8 and above a supportive place to build robots, learn programming, and develop practical skills for the future."
+        title="A non-profit AI and Robotics organization for students aged 8 and above."
+        text="At SMAIR Foundation, students learn how to build robots and explore programming in a supportive, hands-on environment that nurtures creativity and innovation."
       />
+
+      {/* Our Vision */}
+      <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
+          <Reveal>
+            <p className="section-kicker justify-center text-white/60">Our Vision</p>
+            <h2 className="section-title-dark mt-3">
+              Creating futures where AI and robotics drive progress, inclusivity, and equal access to technology.
+            </h2>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Our Goals */}
       <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">

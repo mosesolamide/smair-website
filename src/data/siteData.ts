@@ -272,7 +272,7 @@ export const team: TeamMember[] = [
   {
     name: "Nnenna Okore",
     role: "Coordinator, Business Strategy",
-    email: "nne@smairfoundation.com",
+    email: "nne.okore@smairfoundation.com",
     image: "",
   },
   {

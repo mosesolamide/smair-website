@@ -9,13 +9,14 @@ const HeroCanvas = lazy(() => import("./HeroCanvas").then((m) => ({ default: m.H
 type HeroProps = {
   title: string;
   text: string;
+  kicker?: string;
   image?: string;
   leftImage?: string;
   rightImage?: string;
   children?: React.ReactNode;
 };
 
-export function Hero({ title, text, image, leftImage, rightImage, children }: HeroProps) {
+export function Hero({ title, text, kicker, image, leftImage, rightImage, children }: HeroProps) {
   const isHome = !!children;
 
   return (
@@ -34,6 +35,11 @@ export function Hero({ title, text, image, leftImage, rightImage, children }: He
               variants={revealVariants}
               transition={{ duration: 0.55, ease: "easeOut" }}
             >
+              {kicker && (
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-brand-cyan">
+                  {kicker}
+                </span>
+              )}
               <h1 className="mt-6 text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-[5.35rem]">
                 {title}
               </h1>
