@@ -41,6 +41,8 @@ export function Header() {
           type="button"
           className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-lg border border-zinc-200 bg-white lg:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((v) => !v)}
         >
           <span className={`block h-[2px] w-5 bg-zinc-900 transition-all duration-200 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
@@ -50,7 +52,7 @@ export function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-zinc-100 bg-white/95 px-5 py-3 shadow-lg backdrop-blur sm:px-8 lg:hidden">
+        <nav id="mobile-navigation" className="border-t border-zinc-100 bg-white/95 px-5 py-3 shadow-lg backdrop-blur sm:px-8 lg:hidden">
           <div className="mx-auto max-w-7xl grid gap-0.5">
             {navItems.map(([label, href]) => (
               <NavLink

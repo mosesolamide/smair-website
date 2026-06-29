@@ -61,7 +61,7 @@ export function HeroCanvas() {
 
     /* ── Connection lines ─────────────────────────────── */
     const lineMat = new THREE.LineBasicMaterial({
-      color: 0x0225c4,
+      color: 0x3563e9,
       transparent: true,
       opacity: 0.12,
     });

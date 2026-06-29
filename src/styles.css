@@ -2,10 +2,10 @@
 
 @theme {
   --color-brand-navy: #121a54;
-  --color-brand-blue: #0225c4;
+  --color-brand-blue: #3563e9;
   --color-brand-sky: #ffffff;
-  --color-brand-cyan: #0225c4;
-  --color-brand-violet: #0225c4;
+  --color-brand-cyan: #3563e9;
+  --color-brand-violet: #3563e9;
   --color-brand-mist: #e7e9f5;
   --color-brand-surface: #f6f7fc;
   --shadow-lift: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -59,7 +59,7 @@ button, input, textarea { font: inherit; }
 
 /* Global focus-visible ring for keyboard navigation */
 :focus-visible {
-  outline: 2px solid #0225c4;
+  outline: 2px solid #3563e9;
   outline-offset: 3px;
   border-radius: 4px;
 }
