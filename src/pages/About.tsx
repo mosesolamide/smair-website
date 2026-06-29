@@ -24,6 +24,7 @@ export function About() {
       <Hero
         title="A non-profit AI and Robotics organization for students aged 8 and above."
         text="At SMAIR Foundation, students learn how to build robots and explore programming in a supportive, hands-on environment that nurtures creativity and innovation."
+        backgroundImage="https://static.wixstatic.com/media/3b80ec_3094fceb0ec0437293cd00225a1d63d9~mv2.jpg/v1/fill/w_1592,h_738,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3b80ec_3094fceb0ec0437293cd00225a1d63d9~mv2.jpg"
       />
 
       {/* Our Vision */}
