@@ -13,17 +13,27 @@ type HeroProps = {
   image?: string;
   leftImage?: string;
   rightImage?: string;
+  backgroundImage?: string;
   children?: React.ReactNode;
 };
 
-export function Hero({ title, text, kicker, image, leftImage, rightImage, children }: HeroProps) {
+export function Hero({ title, text, kicker, image, leftImage, rightImage, backgroundImage, children }: HeroProps) {
   const isHome = !!children;
 
   return (
-    <section className={`relative overflow-hidden pt-[70px] ${isHome ? "surface-grid-dark bg-brand-navy text-white" : "surface-grid bg-white"}`}>
-      <Suspense fallback={null}>
-        <HeroCanvas />
-      </Suspense>
+    <section
+      className={`relative isolate overflow-hidden pt-[70px] ${
+        isHome ? "surface-grid-dark bg-brand-navy text-white" : backgroundImage ? "bg-brand-navy text-white" : "surface-grid bg-white"
+      }`}
+      style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")`, backgroundPosition: "center", backgroundSize: "cover" } : undefined}
+    >
+      {backgroundImage ? (
+        <div className="absolute inset-0 -z-10 bg-black/60" />
+      ) : (
+        <Suspense fallback={null}>
+          <HeroCanvas />
+        </Suspense>
+      )}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
@@ -107,7 +117,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, childr
               variants={revealVariants}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight text-zinc-900 sm:text-5xl lg:text-6xl">
+              <h1 className={`mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl ${backgroundImage ? "text-white" : "text-zinc-900"}`}>
                 {title}
               </h1>
               {image && (
@@ -118,7 +128,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, childr
                   style={{ aspectRatio: "16/7" }}
                 />
               )}
-              <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-500">
+              <p className={`mx-auto mt-4 max-w-xl text-lg leading-8 ${backgroundImage ? "text-white/80" : "text-zinc-500"}`}>
                 {text}
               </p>
             </motion.div>
