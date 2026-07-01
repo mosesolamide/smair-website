@@ -35,11 +35,11 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
     >
       {backgroundImage ? (
         <div className="absolute inset-0 -z-10 bg-black/60" />
-      ) : (
+      ) : !image ? (
         <Suspense fallback={null}>
           <HeroCanvas />
         </Suspense>
-      )}
+      ) : null}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
@@ -123,7 +123,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
               className="absolute inset-0 -z-20 h-full w-full object-cover"
               loading="eager"
             />
-            <div className="absolute inset-0 -z-10 bg-brand-navy/65" />
+            <div className="absolute inset-0 -z-10 bg-black/70" />
             <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
               <motion.div
                 initial="hidden"
