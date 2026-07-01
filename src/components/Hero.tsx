@@ -23,7 +23,13 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
   return (
     <section
       className={`relative isolate overflow-hidden pt-[70px] ${
-        isHome ? "surface-grid-dark bg-brand-navy text-white" : backgroundImage ? "bg-brand-navy text-white" : "surface-grid bg-white"
+        isHome
+          ? "surface-grid-dark bg-brand-navy text-white"
+          : image
+          ? "bg-brand-navy text-white"
+          : backgroundImage
+          ? "bg-brand-navy text-white"
+          : "surface-grid bg-white"
       }`}
       style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")`, backgroundPosition: "center", backgroundSize: "cover" } : undefined}
     >
@@ -108,8 +114,34 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
             </div>
 
           </div>
+        ) : image ? (
+          /* Inner page hero — full-bleed background image */
+          <>
+            <img
+              src={image}
+              alt=""
+              className="absolute inset-0 -z-20 h-full w-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute inset-0 -z-10 bg-brand-navy/65" />
+            <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={revealVariants}
+                transition={{ duration: 0.55, ease: "easeOut" }}
+              >
+                <h1 className="mx-auto max-w-3xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                  {title}
+                </h1>
+                <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/80">
+                  {text}
+                </p>
+              </motion.div>
+            </div>
+          </>
         ) : (
-          /* Inner page hero */
+          /* Inner page hero — no image, white bg */
           <div className="py-16 text-center sm:py-20">
             <motion.div
               initial="hidden"
@@ -120,14 +152,6 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
               <h1 className={`mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl ${backgroundImage ? "text-white" : "text-zinc-900"}`}>
                 {title}
               </h1>
-              {image && (
-                <img
-                  src={image}
-                  alt=""
-                  className="mx-auto mt-8 w-full max-w-2xl rounded-lg border border-zinc-200 object-cover shadow-md"
-                  style={{ aspectRatio: "16/7" }}
-                />
-              )}
               <p className={`mx-auto mt-4 max-w-xl text-lg leading-8 ${backgroundImage ? "text-white/80" : "text-zinc-500"}`}>
                 {text}
               </p>
