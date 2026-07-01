@@ -115,7 +115,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
 
           </div>
         ) : image ? (
-          /* Inner page hero — full-bleed background image */
+          /* Inner page hero — full-bleed background image, no animation */
           <>
             <img
               src={image}
@@ -123,21 +123,16 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
               className="absolute inset-0 -z-20 h-full w-full object-cover"
               loading="eager"
             />
-            <div className="absolute inset-0 -z-10 bg-black/70" />
+            <div className="absolute inset-0 -z-10 bg-black/60" />
             <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={revealVariants}
-                transition={{ duration: 0.55, ease: "easeOut" }}
-              >
+              <div>
                 <h1 className="mx-auto max-w-3xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
                   {title}
                 </h1>
                 <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/80">
                   {text}
                 </p>
-              </motion.div>
+              </div>
             </div>
           </>
         ) : (

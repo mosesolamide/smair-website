@@ -202,7 +202,7 @@ const clubFeatures = [
   "Affordable access — subsidized membership for all students and families",
   "Project-based learning — real circuits, robots, and code projects",
   "Structured learning tracks — from electronics basics through AI",
-  "Expert guidance — mentors and engineers from the AIR Innovation Hub",
+  "Expert guidance — mentors and engineers from the AIR Innovation Tech",
   "Innovative community — collaborate with peers from partner schools",
   "Recognition & growth — certificates, showcases, and awards",
 ];
@@ -227,7 +227,7 @@ function SmairClubSection() {
             SMAIR Club Initiative
           </span>
           <h2 className="section-title mt-4">
-            A membership-based learning program powered by AIR Innovation Hub.
+            A membership-based learning program powered by AIR Innovation Tech.
           </h2>
           <p className="mt-4 text-lg leading-8 text-zinc-500">
             Subsidized by SMAIR Foundation — a discounted, high-value opportunity for students
