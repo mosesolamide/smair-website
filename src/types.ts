@@ -15,6 +15,12 @@ export type Post = {
   date: string;
   image: string;
   excerpt: string;
+  author: string;
+  readTime: string;
+  category: string;
+  views?: number;
+  comments?: number;
+  likes?: number;
 };
 
 export type EventItem = {
