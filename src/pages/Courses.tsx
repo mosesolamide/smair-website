@@ -41,27 +41,51 @@ const clubBenefits = [
   },
 ];
 
+const coursesHeroBanner =
+  "https://static.wixstatic.com/media/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg/v1/fill/w_1920,h_600,al_c,q_85,enc_avif,quality_auto/3b80ec_42a4d25d960b43949f82cd14e9c655d4~mv2.jpg";
+
 export function Courses() {
   return (
-    <>
-      <Hero
-        title="Powered by AI & Robotics Innovation Hub."
-        text="SMAIR Foundation sponsors access to practical technology education and helps democratize 21st-century skills."
-      />
-      <section className="surface-grid bg-brand-surface py-20 sm:py-24">
-        <motion.div
-          className="mx-auto grid max-w-7xl gap-5 px-5 sm:px-8 sm:grid-cols-2 lg:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={staggerVariants}
-        >
-          {courses.map((course, index) => (
-            <CourseCard key={course.slug} course={course} index={index} />
-          ))}
-        </motion.div>
-      </section>
-    </>
+    <div className="min-h-screen bg-white">
+      {/* ── Banner image (no text) ───────────────── */}
+      <div className="pt-17.5">
+        <img
+          src={coursesHeroBanner}
+          alt=""
+          className="h-[40vh] w-full object-cover sm:h-[50vh]"
+          loading="eager"
+        />
+      </div>
+
+      {/* ── "Our Courses" heading ────────────────── */}
+      <div className="bg-white py-10 text-center">
+        <h1 className="text-4xl font-black text-brand-blue sm:text-5xl">Our Courses</h1>
+      </div>
+
+      {/* ── Intro paragraph ─────────────────────── */}
+      <div className="mx-auto max-w-3xl px-5 pb-12 text-center sm:px-8">
+        <p className="text-base leading-8 text-zinc-600">
+          Through a strategic partnership with EdTech company{" "}
+          <span className="font-semibold text-brand-blue underline">AIRobotics</span>, SMAIR
+          Foundation sponsors and provides access to cutting-edge technology courses for people
+          in underserved locations. This initiative supports our mission to democratize access
+          to 21st-century skills.
+        </p>
+      </div>
+
+      {/* ── Course grid (2 columns) ──────────────── */}
+      <motion.div
+        className="mx-auto grid max-w-5xl gap-x-8 gap-y-2 px-5 pb-20 sm:grid-cols-2 sm:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        variants={staggerVariants}
+      >
+        {courses.map((course) => (
+          <CourseCard key={course.slug} course={course} />
+        ))}
+      </motion.div>
+    </div>
   );
 }
 

@@ -5,31 +5,36 @@ import { cardVariants } from "./motion";
 
 const MotionLink = motion.create(Link);
 
-export function CourseCard({ course, index }: { course: Course; index: number }) {
-  const Icon = course.icon;
-
+export function CourseCard({ course }: { course: Course }) {
   return (
     <MotionLink
       to={`/our-projects/${course.slug}`}
-      className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200/70 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-brand-sky/70 hover:shadow-md"
+      className="group block"
       variants={cardVariants}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      {course.image ? (
-        <img src={course.image} alt="" className="aspect-video w-full object-cover" loading="lazy" />
-      ) : (
-        <div className="img-slot aspect-video w-full" />
-      )}
-      <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-center justify-between">
-          <span className="icon-tile h-9 w-9">
-            <Icon className="h-4 w-4" />
-          </span>
-          <span className="badge">{String(index + 1).padStart(2, "0")}</span>
-        </div>
-        <h2 className="mt-4 text-lg font-bold text-zinc-900">{course.title}</h2>
-        <p className="mt-2 flex-1 text-sm leading-6 text-zinc-500">{course.intro}</p>
-        <p className="mt-5 text-sm font-semibold text-brand-cyan">Explore course -&gt;</p>
+      {/* Image */}
+      <div className="overflow-hidden">
+        {course.image ? (
+          <img
+            src={course.image}
+            alt={course.title}
+            className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="img-slot aspect-4/3 w-full" />
+        )}
+      </div>
+
+      {/* Title strip — white bg, blue top border */}
+      <div className="border-t-[3px] border-brand-blue bg-white px-4 py-4 text-center">
+        <h2 className="text-lg font-black text-brand-blue">{course.title}</h2>
+      </div>
+
+      {/* Description below card */}
+      <div className="px-4 pt-4 pb-6 text-center">
+        <p className="text-sm leading-6 text-brand-blue/80 italic">{course.intro}</p>
       </div>
     </MotionLink>
   );
