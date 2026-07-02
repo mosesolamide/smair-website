@@ -267,31 +267,31 @@ export const team: TeamMember[] = [
     name: "Dipo Ojedeji",
     role: "Director",
     email: "dipo@smairfoundation.com",
-    image: "",
+    image: "https://static.wixstatic.com/media/3b80ec_9939aec2b83640de93f0fa21bb5c1aa8~mv2.png",
   },
   {
     name: "Nnenna Okore",
     role: "Coordinator, Business Strategy",
     email: "nne.okore@smairfoundation.com",
-    image: "",
+    image: "https://static.wixstatic.com/media/3b80ec_36ad329897574e7b8c256033da812a4a~mv2.png",
   },
   {
     name: "Faithful Ajah",
     role: "Technology Integrations Manager",
     email: "faithful@smairfoundation.com",
-    image: "",
+    image: "https://static.wixstatic.com/media/3b80ec_dac270a589664249b00d25a3c936ac25~mv2.png",
   },
   {
     name: "Moses Jeffrey",
     role: "Robotics Engineer",
     email: "jeff@smairfoundation.com",
-    image: "",
+    image: "https://static.wixstatic.com/media/3b80ec_fde99dec6b594d0f9c0c285925e8c62d~mv2.jpg",
   },
   {
     name: "Oluwaseun Aregbesola",
     role: "Program and Data Management Officer",
     email: "oluwaseun@smairfoundation.com",
-    image: "",
+    image: "https://static.wixstatic.com/media/3b80ec_fa7982f30575486aa0fac8de2a931720~mv2.png",
   },
 ];
 
