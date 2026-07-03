@@ -12,8 +12,7 @@ export function Home() {
   return (
     <>
       <HeroSection />
-      <OurProgramsSection />
-      <OurVisionSection />
+      <ProgramsVisionSection />
       <LatestUpdatesSection />
       <ContactBand />
       <SmairClubSection />
@@ -80,68 +79,67 @@ function HeroSection() {
   );
 }
 
-/* ─── Our Programs ──────────────────────────────────────────────── */
-function OurProgramsSection() {
+/* ─── Our Programs & Our Vision — tinted photo panels, overlay cards ── */
+function ProgramsVisionSection() {
   return (
-    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
-          <p className="section-kicker">Our Programs</p>
-          <h2 className="section-title">
-            Robotics and programming for ages 8 and above.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-zinc-500">
-            SMAIR Foundation provides immersive learning experiences in robotics and
-            programming, with emphasis on creativity and innovation. Students work
-            hands-on with hardware, code, and real projects in a supportive environment.
-          </p>
-          <Link to="/courses" className="btn-primary mt-8 inline-flex">
-            View Course Catalog
-          </Link>
-        </Reveal>
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2">
+        {/* Our Programs */}
+        <div className="relative overflow-hidden">
+          <img
+            src={sampleImages[1].src}
+            alt="SMAIR robotics kits"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
+          <Reveal className="relative ml-6 max-w-xs pb-16 pt-24 sm:ml-10">
+            <div className="relative bg-white p-7 sm:p-9">
+              <span aria-hidden="true" className="absolute -top-2 left-0 h-2 w-[135%] bg-brand-blue" />
+              <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">Our Programs</h2>
+              <p className="mt-5 text-sm leading-7 text-brand-blue">
+                At SMAIR, we offer an immersive learning experience where students aged 8 and
+                above can explore the realms of robotics and programming. Our courses are
+                designed to inspire creativity and innovation, empowering the next generation
+                of tech leaders.
+              </p>
+              <Link
+                to="/courses"
+                className="mt-6 inline-block text-sm font-black uppercase tracking-[0.08em] text-brand-blue hover:underline"
+              >
+                View Course Catalog
+              </Link>
+            </div>
+          </Reveal>
+        </div>
 
-        <Reveal delay={0.1}>
-          <div className="overflow-hidden rounded-xl shadow-md">
-            <img
-              src={sampleImages[1].src}
-              alt="SMAIR robotics programme"
-              className="aspect-4/3 h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Our Vision ────────────────────────────────────────────────── */
-function OurVisionSection() {
-  return (
-    <section className="bg-white py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
-          <div className="overflow-hidden rounded-xl shadow-md">
-            <img
-              src={sampleImages[2].src}
-              alt="SMAIR students and mentors"
-              className="aspect-4/3 h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <p className="section-kicker">Our Vision</p>
-          <h2 className="section-title">
-            Creating futures where AI and robotics drive progress, inclusivity, and equal access.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-zinc-500">
-            We envision a world where every young person, regardless of background,
-            has access to the technology skills and knowledge needed to lead and
-            innovate in an AI-driven future.
-          </p>
-        </Reveal>
+        {/* Our Vision */}
+        <div className="relative overflow-hidden">
+          <img
+            src={sampleImages[2].src}
+            alt="SMAIR students and mentors"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
+          <Reveal delay={0.08} className="relative mx-auto max-w-xs px-0 pb-40 pt-8">
+            <div className="relative bg-white p-7 sm:p-9">
+              <span aria-hidden="true" className="absolute -top-2 left-0 h-2 w-[135%] bg-brand-blue" />
+              <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">Our Vision</h2>
+              <p className="mt-5 text-sm leading-7 text-brand-blue">
+                To create a future where AI and robotics drive progress, inclusivity, and equal
+                access to technology education for all, empowering the next generation of
+                innovators.
+              </p>
+              <Link
+                to="/about"
+                className="mt-6 inline-block text-sm font-black uppercase tracking-[0.08em] text-brand-blue hover:underline"
+              >
+                Learn More
+              </Link>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
