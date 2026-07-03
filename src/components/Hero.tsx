@@ -1,10 +1,6 @@
 import type React from "react";
-import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { revealVariants } from "./motion";
-
-/* Three.js background canvas — lazy so it doesn't block paint */
-const HeroCanvas = lazy(() => import("./HeroCanvas").then((m) => ({ default: m.HeroCanvas })));
 
 type HeroProps = {
   title: string;
@@ -33,13 +29,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
       }`}
       style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")`, backgroundPosition: "center", backgroundSize: "cover" } : undefined}
     >
-      {backgroundImage ? (
-        <div className="absolute inset-0 -z-10 bg-black/60" />
-      ) : !image ? (
-        <Suspense fallback={null}>
-          <HeroCanvas />
-        </Suspense>
-      ) : null}
+      {backgroundImage && <div className="absolute inset-0 -z-10 bg-black/60" />}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
