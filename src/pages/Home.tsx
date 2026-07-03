@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CalendarDays, ChevronRight, Lightbulb, MapPin, Youtube } from "lucide-react";
+import { CalendarDays, ChevronRight, Download, Lightbulb, MapPin, Youtube } from "lucide-react";
 import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { ContactForm } from "../components/ContactForm";
@@ -17,6 +17,7 @@ export function Home() {
       <LatestUpdatesSection />
       <ContactBand />
       <SmairClubSection />
+      <DocumentarySection />
       <YouTubeSection />
       <WorkshopsSection />
       <StatsSection />
@@ -35,7 +36,7 @@ const heroPoster =
 
 function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-[70px]">
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-15">
       <video
         className="absolute inset-0 -z-30 h-full w-full object-cover"
         autoPlay
@@ -253,6 +254,36 @@ function SmairClubSection() {
   );
 }
 
+/* ─── Documentary — Watch Our Story ─────────────────────────────── */
+function DocumentarySection() {
+  return (
+    <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <Reveal className="text-center">
+          <p className="section-kicker justify-center">SMAIR Documentary</p>
+          <h2 className="section-title-dark mx-auto max-w-2xl">Watch our story.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/60">
+            Step inside our bootcamps, classrooms, and clubs — see how young innovators
+            across Lagos learn, build, and create with SMAIR.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.08} className="mt-10">
+          <video
+            controls
+            preload="none"
+            poster={heroPoster}
+            className="aspect-video w-full rounded-xl border border-white/10 object-cover shadow-[0_24px_70px_rgba(0,0,0,0.35)]"
+          >
+            <source src={heroVideo} type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ─── YouTube Tutorials ─────────────────────────────────────────── */
 function YouTubeSection() {
   return (
@@ -296,7 +327,18 @@ function WorkshopsSection() {
           <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue"><CalendarDays className="h-8 w-8" /></span>
           <h3 className="mt-6 text-2xl font-black text-brand-navy">No events at the moment</h3>
           <p className="mx-auto mt-3 max-w-lg leading-7 text-zinc-500">New sessions are being planned. Contact us to bring a SMAIR workshop to your school.</p>
-          <Link to="/contact" className="btn-outline mt-7">Register your interest</Link>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link to="/contact" className="btn-outline">Register your interest</Link>
+            <a
+              href="https://22be33b4-62e6-4cf4-ace3-1e2489118037.filesusr.com/ugd/42289d_a8b6dfa83b3347898b806b1a09cdaf6f.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              <Download className="h-4 w-4" />
+              Download Brochure
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

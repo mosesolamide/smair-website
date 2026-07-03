@@ -22,7 +22,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
 
   return (
     <section
-      className={`relative isolate overflow-hidden pt-[70px] ${
+      className={`relative isolate overflow-hidden pt-15 ${
         isHome
           ? "surface-grid-dark bg-brand-navy text-white"
           : image
@@ -43,7 +43,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
-          <div className="grid min-h-[calc(100vh-70px)] items-center gap-10 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
+          <div className="grid min-h-[calc(100vh-60px)] items-center gap-10 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
             <motion.div
               className="max-w-3xl"
               initial="hidden"
@@ -67,7 +67,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
               </div> 
             </motion.div>
 
-            <div className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr] lg:min-h-[560px] lg:items-end">
+            <div className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr] lg:min-h-140 lg:items-end">
               <motion.div
                 className="hidden sm:block"
                 initial={{ opacity: 0, x: -24 }}
