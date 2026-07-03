@@ -74,17 +74,11 @@ export function Courses() {
       </div>
 
       {/* ── Course grid (2 columns) ──────────────── */}
-      <motion.div
-        className="mx-auto grid max-w-5xl gap-x-8 gap-y-2 px-5 pb-20 sm:grid-cols-2 sm:px-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={staggerVariants}
-      >
+      <div className="mx-auto grid max-w-5xl gap-x-8 gap-y-2 px-5 pb-20 sm:grid-cols-2 sm:px-8">
         {courses.map((course) => (
           <CourseCard key={course.slug} course={course} />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

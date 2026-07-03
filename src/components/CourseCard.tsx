@@ -10,6 +10,9 @@ export function CourseCard({ course }: { course: Course }) {
     <MotionLink
       to={`/our-projects/${course.slug}`}
       className="group block"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
       variants={cardVariants}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
