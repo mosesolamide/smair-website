@@ -1,20 +1,16 @@
 import { motion } from "framer-motion";
-import { CalendarDays, ChevronRight, Download, Lightbulb, MapPin, Youtube } from "lucide-react";
+import { CalendarDays, Download, Lightbulb, MapPin, Youtube } from "lucide-react";
 import { Link } from "react-router";
-import { ContactBand } from "../components/ContactBand";
 import { ContactForm } from "../components/ContactForm";
 import { Reveal, cardVariants, revealVariants, staggerVariants, viewport } from "../components/motion";
-import { collaborators, events, sampleImages } from "../data/siteData";
-
-const MotionLink = motion.create(Link);
+import { collaborators, sampleImages } from "../data/siteData";
 
 export function Home() {
   return (
     <>
       <HeroSection />
       <ProgramsVisionSection />
-      <LatestUpdatesSection />
-      <ContactBand />
+      <UpdatesGetInvolvedSection />
       <SmairClubSection />
       <DocumentarySection />
       <YouTubeSection />
@@ -79,118 +75,111 @@ function HeroSection() {
   );
 }
 
-/* ─── Our Programs & Our Vision — tinted photo panels, overlay cards ── */
+/* ─── Tinted photo panel with overlapping white card (Wix style) ── */
+const wixPanel = (id: string, ext = "jpg") =>
+  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_960,h_1200,al_c,q_85,enc_avif,quality_auto/${id}~mv2.${ext}`;
+
+const panelImages = {
+  programs: wixPanel("3b80ec_5c03e3726146499f88c6dc43df9f6d14"),
+  vision: wixPanel("3b80ec_661f0679626143de9354b4b52e00f0b3"),
+  updates: wixPanel("3b80ec_309b3d8c1cc8494b950b15d11c22a0cd"),
+  getInvolved: wixPanel("11062b_8d47d1c047904478a0cf81b25f044d11", "jpeg"),
+};
+
+type PhotoPanelProps = {
+  image: string;
+  alt: string;
+  title: string;
+  text: string;
+  linkLabel: string;
+  to: string;
+  placement: "left-low" | "center-high" | "right-low";
+  delay?: number;
+};
+
+function PhotoPanel({ image, alt, title, text, linkLabel, to, placement, delay = 0 }: PhotoPanelProps) {
+  const cardPos =
+    placement === "left-low"
+      ? "ml-6 pb-16 pt-24 sm:ml-10"
+      : placement === "right-low"
+      ? "ml-auto mr-6 pb-16 pt-56 sm:mr-10"
+      : "mx-auto pb-40 pt-8";
+  const barSide = placement === "right-low" ? "right-0" : "left-0";
+
+  return (
+    <div className="relative overflow-hidden">
+      <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
+      <Reveal delay={delay} className={`relative max-w-xs ${cardPos}`}>
+        <div className="relative bg-white p-7 sm:p-9">
+          <span aria-hidden="true" className={`absolute -top-2 h-2 w-[135%] bg-brand-blue ${barSide}`} />
+          <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">{title}</h2>
+          <p className="mt-5 text-sm leading-7 text-brand-blue">{text}</p>
+          <Link
+            to={to}
+            className="mt-6 inline-block text-sm font-black uppercase tracking-[0.08em] text-brand-blue hover:underline"
+          >
+            {linkLabel}
+          </Link>
+        </div>
+      </Reveal>
+    </div>
+  );
+}
+
+/* ─── Our Programs & Our Vision ─────────────────────────────────── */
 function ProgramsVisionSection() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2">
-        {/* Our Programs */}
-        <div className="relative overflow-hidden">
-          <img
-            src={sampleImages[1].src}
-            alt="SMAIR robotics kits"
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
-          <Reveal className="relative ml-6 max-w-xs pb-16 pt-24 sm:ml-10">
-            <div className="relative bg-white p-7 sm:p-9">
-              <span aria-hidden="true" className="absolute -top-2 left-0 h-2 w-[135%] bg-brand-blue" />
-              <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">Our Programs</h2>
-              <p className="mt-5 text-sm leading-7 text-brand-blue">
-                At SMAIR, we offer an immersive learning experience where students aged 8 and
-                above can explore the realms of robotics and programming. Our courses are
-                designed to inspire creativity and innovation, empowering the next generation
-                of tech leaders.
-              </p>
-              <Link
-                to="/courses"
-                className="mt-6 inline-block text-sm font-black uppercase tracking-[0.08em] text-brand-blue hover:underline"
-              >
-                View Course Catalog
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Our Vision */}
-        <div className="relative overflow-hidden">
-          <img
-            src={sampleImages[2].src}
-            alt="SMAIR students and mentors"
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
-          <Reveal delay={0.08} className="relative mx-auto max-w-xs px-0 pb-40 pt-8">
-            <div className="relative bg-white p-7 sm:p-9">
-              <span aria-hidden="true" className="absolute -top-2 left-0 h-2 w-[135%] bg-brand-blue" />
-              <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">Our Vision</h2>
-              <p className="mt-5 text-sm leading-7 text-brand-blue">
-                To create a future where AI and robotics drive progress, inclusivity, and equal
-                access to technology education for all, empowering the next generation of
-                innovators.
-              </p>
-              <Link
-                to="/about"
-                className="mt-6 inline-block text-sm font-black uppercase tracking-[0.08em] text-brand-blue hover:underline"
-              >
-                Learn More
-              </Link>
-            </div>
-          </Reveal>
-        </div>
+        <PhotoPanel
+          image={panelImages.programs}
+          alt="SMAIR robotics kits ready for students"
+          title="Our Programs"
+          text="At SMAIR, we offer an immersive learning experience where students aged 8 and above can explore the realms of robotics and programming. Our courses are designed to inspire creativity and innovation, empowering the next generation of tech leaders."
+          linkLabel="View Course Catalog"
+          to="/courses"
+          placement="left-low"
+        />
+        <PhotoPanel
+          image={panelImages.vision}
+          alt="SMAIR students at the AI Robotics Innovation Hub"
+          title="Our Vision"
+          text="To create a future where AI and robotics drive progress, inclusivity, and equal access to technology education for all, empowering the next generation of innovators."
+          linkLabel="Learn More"
+          to="/about"
+          placement="center-high"
+          delay={0.08}
+        />
       </div>
     </section>
   );
 }
 
-/* ─── Latest Updates ────────────────────────────────────────────── */
-function LatestUpdatesSection() {
+/* ─── Latest Updates & Get Involved ─────────────────────────────── */
+function UpdatesGetInvolvedSection() {
   return (
-    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="section-kicker">Latest Updates</p>
-            <h2 className="section-title">
-              Events, student achievements, and industry news.
-            </h2>
-          </div>
-          <Link to="/news" className="btn-outline shrink-0">See All</Link>
-        </Reveal>
-
-        <motion.div
-          className="mt-10 grid gap-5 lg:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={staggerVariants}
-        >
-          {events.map((event) => (
-            <MotionLink
-              key={event.slug}
-              to={`/event-details/${event.slug}`}
-              className="group overflow-hidden rounded-xl border border-white bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-              variants={cardVariants}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              {event.image && (
-                <img src={event.image} alt="" className="aspect-video w-full object-cover" />
-              )}
-              <div className="p-6">
-                <p className="section-kicker">{event.date}</p>
-                <h3 className="mt-3 text-xl font-black text-zinc-900 transition-colors duration-200 group-hover:text-brand-blue">
-                  {event.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-500">{event.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-blue">
-                  Read more <ChevronRight className="h-4 w-4" />
-                </span>
-              </div>
-            </MotionLink>
-          ))}
-        </motion.div>
+    <section className="bg-white pb-16 sm:pb-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2">
+        <PhotoPanel
+          image={panelImages.updates}
+          alt="SMAIR student speaking at a presentation"
+          title="Latest Updates"
+          text="Stay updated with our latest events, student achievements, and industry news. Our commitment to excellence and progress ensures a dynamic learning environment for all."
+          linkLabel="Explore News"
+          to="/blog"
+          placement="right-low"
+        />
+        <PhotoPanel
+          image={panelImages.getInvolved}
+          alt="Robotic machinery in an assembly lab"
+          title="Get Involved"
+          text="Join our community of learners, educators, and innovators. Discover the endless possibilities that await and be a part of our mission to revolutionize education through technology."
+          linkLabel="Join the Community"
+          to="/contact"
+          placement="center-high"
+          delay={0.08}
+        />
       </div>
     </section>
   );
