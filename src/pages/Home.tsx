@@ -110,9 +110,9 @@ function PhotoPanel({ image, alt, title, text, linkLabel, to, placement, delay =
     <div className="relative overflow-hidden">
       <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-brand-blue/55" aria-hidden="true" />
-      <Reveal delay={delay} className={`relative max-w-xs ${cardPos}`}>
-        <div className="relative bg-white p-7 sm:p-9">
-          <span aria-hidden="true" className={`absolute -top-2 h-2 w-[135%] bg-brand-blue ${barSide}`} />
+      <Reveal delay={delay} className={`relative max-w-sm ${cardPos}`}>
+        <div className="relative bg-white p-8 sm:p-10">
+          <span aria-hidden="true" className={`absolute -top-2 h-2 w-full bg-brand-blue ${barSide}`} />
           <h2 className="text-3xl font-black text-brand-blue sm:text-4xl">{title}</h2>
           <p className="mt-5 text-sm leading-7 text-brand-blue">{text}</p>
           <Link
