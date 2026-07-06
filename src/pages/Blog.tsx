@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import DOMPurify from "dompurify";
 import { Eye, Heart, MessageCircle, Search } from "lucide-react";
+import { marked } from "marked";
 import { Link, useParams } from "react-router";
 import { Hero } from "../components/Hero";
-import { posts } from "../data/siteData";
+import { posts } from "../data/posts";
 import type { Post } from "../types";
 
 const CATEGORIES = ["Blogs & Newsletters", "newsletter", "smair bootcamp"];
@@ -158,6 +160,11 @@ function BlogCard({ post }: { post: Post }) {
 }
 
 export function PostPage({ post }: { post: Post }) {
+  const html = useMemo(
+    () => DOMPurify.sanitize(marked.parse(post.body ?? "", { async: false }) as string),
+    [post.body],
+  );
+
   return (
     <>
       <Hero title={post.title} text={post.excerpt} image={post.image} />
@@ -170,16 +177,11 @@ export function PostPage({ post }: { post: Post }) {
             <span>·</span>
             <span>{post.readTime}</span>
           </div>
-          <div className="space-y-5 text-lg leading-8 text-zinc-600">
-            <p>
-              This story captures the practical spirit of SMAIR: young learners building, coding, testing,
-              sharing, and growing through technology.
-            </p>
-            <p>
-              Programs like these help students connect classroom curiosity to real projects, teamwork,
-              communication, and future-ready technical confidence.
-            </p>
-          </div>
+          <div
+            className="prose-content space-y-5 text-lg leading-8 text-zinc-600"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
           <Link to="/blog" className="mt-10 inline-flex btn-dark">
             ← Back to Blog
           </Link>

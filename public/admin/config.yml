@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://smair.netlify.app
+display_url: https://smair.netlify.app
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "content/posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sortableFields: ["date", "title"]
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        hint: "This shows on the blog card and at the top of the post."
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "smairfoundation" }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "2 min read", hint: "e.g. \"3 min read\"" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Blogs & Newsletters", "newsletter", "smair bootcamp"]
+        default: "Blogs & Newsletters"
+      - { label: "Views", name: "views", widget: "number", default: 0, required: false, value_type: "int" }
+      - { label: "Comments", name: "comments", widget: "number", default: 0, required: false, value_type: "int" }
+      - { label: "Likes", name: "likes", widget: "number", default: 0, required: false, value_type: "int" }
+      - { label: "Body", name: "body", widget: "markdown" }

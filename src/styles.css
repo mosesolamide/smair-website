@@ -159,4 +159,20 @@ button, input, textarea { font: inherit; }
       linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
+
+  .prose-content :where(h1, h2, h3) {
+    @apply mt-8 mb-3 font-black text-zinc-900;
+  }
+  .prose-content :where(h1) { @apply text-3xl; }
+  .prose-content :where(h2) { @apply text-2xl; }
+  .prose-content :where(h3) { @apply text-xl; }
+  .prose-content :where(p) { @apply mb-5; }
+  .prose-content :where(ul, ol) { @apply mb-5 ml-6 list-outside space-y-2; }
+  .prose-content :where(ul) { @apply list-disc; }
+  .prose-content :where(ol) { @apply list-decimal; }
+  .prose-content :where(a) { @apply font-semibold text-brand-blue underline; }
+  .prose-content :where(img) { @apply my-6 rounded-lg; }
+  .prose-content :where(blockquote) {
+    @apply my-5 border-l-4 border-brand-blue/30 pl-4 italic text-zinc-500;
+  }
 }

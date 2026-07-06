@@ -21,6 +21,7 @@ export type Post = {
   views?: number;
   comments?: number;
   likes?: number;
+  body: string;
 };
 
 export type EventItem = {

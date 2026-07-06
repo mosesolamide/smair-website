@@ -232,7 +232,7 @@ function SmairClubSection() {
             ))}
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/smair-club" className="btn-primary">Join SMAIR Club</Link>
+            <Link to="/contact" className="btn-primary">Join SMAIR Club</Link>
             <Link to="/contact" className="btn-outline">Partner Your School</Link>
           </div>
         </Reveal>

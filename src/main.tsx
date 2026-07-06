@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { SiteLayout } from "./components/Layout";
 import { About } from "./pages/About";
 import { Blog, PostRoute } from "./pages/Blog";
-import { Club, Courses, ProjectRoute } from "./pages/Courses";
+import { Courses, ProjectRoute } from "./pages/Courses";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { EventRoute, News } from "./pages/News";
@@ -30,7 +30,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="courses" element={<Courses />} />
-          <Route path="smair-club" element={<Club />} />
           <Route path="team" element={<Team />} />
           <Route path="news" element={<News />} />
           <Route path="blog" element={<Blog />} />
