@@ -8,6 +8,7 @@ import { Courses, ProjectRoute } from "./pages/Courses";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { EventRoute, News } from "./pages/News";
+import { Sponsorship } from "./pages/Sponsorship";
 import { Team } from "./pages/Team";
 import { NotFound, Policy, Thanks } from "./pages/UtilityPages";
 import "./styles.css";
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="courses" element={<Courses />} />
+          <Route path="sponsorship" element={<Sponsorship />} />
           <Route path="team" element={<Team />} />
           <Route path="news" element={<News />} />
           <Route path="blog" element={<Blog />} />

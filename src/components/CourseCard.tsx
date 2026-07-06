@@ -30,7 +30,7 @@ export function CourseCard({ course }: { course: Course }) {
         )}
       </div>
 
-      {/* Title strip — white bg, blue top border */}
+      {/* Title strip: white bg, blue top border */}
       <div className="border-t-[3px] border-brand-blue bg-white px-4 py-4 text-center">
         <h2 className="text-lg font-black text-brand-blue">{course.title}</h2>
       </div>

@@ -105,7 +105,7 @@ function BlogCard({ post }: { post: Post }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        {/* Blue overlay — matches Wix tint */}
+        {/* Blue overlay: matches Wix tint */}
         <div className="absolute inset-0 bg-brand-blue/50" />
 
         {/* Top row: author + date + three-dot */}

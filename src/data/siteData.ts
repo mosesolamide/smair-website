@@ -15,7 +15,7 @@ import type { Course, EventItem, GalleryImage, TeamMember } from "../types";
 
 export const navItems = [
   ["About", "/about"],
-  ["Courses", "/courses"],
+  ["Sponsorship", "/sponsorship"],
   ["Team", "/team"],
   ["News", "/news"],
   ["Blog", "/blog"],
@@ -271,7 +271,7 @@ export const sampleImages: GalleryImage[] = [
   },
   {
     src: "https://static.wixstatic.com/media/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png/v1/fill/w_800,h_533,fp_0.50_0.50,q_95,enc_avif,quality_auto/42289d_652e4bc23a824baa8e1ea9defab9b4da~mv2.png",
-    label: "Working Prototypes — Week 4",
+    label: "Working Prototypes: Week 4",
   },
   {
     src: "https://static.wixstatic.com/media/3b80ec_5c03e3726146499f88c6dc43df9f6d14~mv2.jpg/v1/fit/w_480,h_285,q_90,enc_avif,quality_auto/3b80ec_5c03e3726146499f88c6dc43df9f6d14~mv2.jpg",
@@ -279,7 +279,7 @@ export const sampleImages: GalleryImage[] = [
   },
 ];
 
-/* Collaborator / partner logos — original files, no Wix resize params */
+/* Collaborator / partner logos: original files, no Wix resize params */
 export const collaborators = [
   {
     name: "TechSplicit",

@@ -52,7 +52,7 @@ export function Courses() {
   );
 }
 
-/* ─── Sponsor a Child — CTA band ──────────────────────────────────── */
+/* ─── Sponsor a Child: CTA band ──────────────────────────────────── */
 function SponsorshipBand() {
   return (
     <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
@@ -69,7 +69,7 @@ function SponsorshipBand() {
               </h2>
               <p className="mt-4 max-w-2xl leading-7 text-white/60">
                 Your sponsorship covers course fees, robotics kits, and mentorship for a student
-                who couldn't otherwise afford it — turning curiosity into real, hands-on skill.
+                who couldn't otherwise afford it, turning curiosity into real, hands-on skill.
               </p>
             </div>
           </div>

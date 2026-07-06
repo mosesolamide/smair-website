@@ -105,7 +105,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
 
           </div>
         ) : image ? (
-          /* Inner page hero — full-bleed background image, no animation */
+          /* Inner page hero: full-bleed background image, no animation */
           <>
             <img
               src={image}
@@ -126,7 +126,7 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
             </div>
           </>
         ) : (
-          /* Inner page hero — no image, white bg */
+          /* Inner page hero: no image, white bg */
           <div className="py-16 text-center sm:py-20">
             <motion.div
               initial="hidden"

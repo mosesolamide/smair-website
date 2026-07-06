@@ -23,7 +23,7 @@ export function Home() {
   );
 }
 
-/* ─── Hero — full-width background image, centred overlay text ── */
+/* ─── Hero: full-width background image, centred overlay text ── */
 const heroVideo =
   "https://video.wixstatic.com/video/3b80ec_419e4f9f64fb4df0b336ccd6cc6b51a0/720p/mp4/file.mp4";
 const heroPoster =
@@ -187,12 +187,12 @@ function UpdatesGetInvolvedSection() {
 
 /* ─── SMAIR Club ────────────────────────────────────────────────── */
 const clubFeatures = [
-  "Affordable access — subsidized membership for all students and families",
-  "Project-based learning — real circuits, robots, and code projects",
-  "Structured learning tracks — from electronics basics through AI",
-  "Expert guidance — mentors and engineers from the AIR Innovation Tech",
-  "Innovative community — collaborate with peers from partner schools",
-  "Recognition & growth — certificates, showcases, and awards",
+  "Affordable access: subsidized membership for all students and families",
+  "Project-based learning: real circuits, robots, and code projects",
+  "Structured learning tracks: from electronics basics through AI",
+  "Expert guidance: mentors and engineers from the AIR Innovation Tech",
+  "Innovative community: collaborate with peers from partner schools",
+  "Recognition & growth: certificates, showcases, and awards",
 ];
 
 function SmairClubSection() {
@@ -218,7 +218,7 @@ function SmairClubSection() {
             A membership-based learning program powered by AIR Innovation Tech.
           </h2>
           <p className="mt-4 text-lg leading-8 text-zinc-500">
-            Subsidized by SMAIR Foundation — a discounted, high-value opportunity for students
+            Subsidized by SMAIR Foundation, a discounted, high-value opportunity for students
             aged 8 and above to access robotics, coding, AI, design thinking, and digital literacy.
           </p>
           <ul className="mt-6 grid gap-3">
@@ -241,7 +241,7 @@ function SmairClubSection() {
   );
 }
 
-/* ─── Documentary — Watch Our Story ─────────────────────────────── */
+/* ─── Documentary: Watch Our Story ─────────────────────────────── */
 function DocumentarySection() {
   return (
     <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
@@ -250,7 +250,7 @@ function DocumentarySection() {
           <p className="section-kicker justify-center">SMAIR Documentary</p>
           <h2 className="section-title-dark mx-auto max-w-2xl">Watch our story.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/60">
-            Step inside our bootcamps, classrooms, and clubs — see how young innovators
+            Step inside our bootcamps, classrooms, and clubs, and see how young innovators
             across Lagos learn, build, and create with SMAIR.
           </p>
         </Reveal>
@@ -284,7 +284,7 @@ function YouTubeSection() {
             <div>
               <h2 className="text-2xl font-black">YouTube Tutorials</h2>
               <p className="mt-1 max-w-lg text-sm leading-6 text-white/60">
-                Free AI and robotics tutorials — bootcamps, club projects, and student builds, all on YouTube.
+                Free AI and robotics tutorials: bootcamps, club projects, and student builds, all on YouTube.
               </p>
             </div>
           </div>
@@ -294,7 +294,7 @@ function YouTubeSection() {
             rel="noreferrer"
             className="btn-primary shrink-0"
           >
-            Subscribe — It's Free!
+            Subscribe, It's Free!
           </a>
         </div>
       </div>
@@ -332,7 +332,7 @@ function WorkshopsSection() {
   );
 }
 
-/* ─── Empowering Future Innovators — Stats ──────────────────────── */
+/* ─── Empowering Future Innovators: Stats ──────────────────────── */
 const stats = [
   { value: "25+", label: "Students Impacted" },
   { value: "45+", label: "Recommendations" },
@@ -371,7 +371,7 @@ const quotes = [
     role: "Educator, SMAIR Foundation",
   },
   {
-    text: "The curriculum is well-structured and engaging. My students look forward to every session — SMAIR makes technology feel accessible and fun.",
+    text: "The curriculum is well-structured and engaging. My students look forward to every session. SMAIR makes technology feel accessible and fun.",
     name: "Michael Okafor",
     role: "School Partner Teacher",
   },

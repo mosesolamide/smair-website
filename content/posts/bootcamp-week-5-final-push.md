@@ -2,7 +2,7 @@
 title: "SMAIR Bootcamp Week 5 Highlights: The Final Push 🎉"
 date: 2025-09-01
 image: "https://static.wixstatic.com/media/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg/v1/fill/w_800,h_533,fp_0.50_0.50,q_90,enc_avif,quality_auto/42289d_d9855ea6951b4285a8367e61abd1578b~mv2.jpg"
-excerpt: "In the final week students pushed prototypes to the finish line — polishing builds, presentations, and lessons."
+excerpt: "In the final week students pushed prototypes to the finish line, polishing builds, presentations, and lessons."
 author: "smairfoundation"
 readTime: "3 min read"
 category: "smair bootcamp"
