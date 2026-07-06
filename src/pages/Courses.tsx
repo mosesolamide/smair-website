@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Compass, Hammer, ListChecks, Users, Wallet } from "lucide-react";
+import { Award, Compass, Hammer, HeartHandshake, ListChecks, Users, Wallet } from "lucide-react";
 import { Link, useParams } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { CourseCard } from "../components/CourseCard";
@@ -79,7 +79,39 @@ export function Courses() {
           <CourseCard key={course.slug} course={course} />
         ))}
       </div>
+
+      <SponsorshipBand />
     </div>
+  );
+}
+
+/* ─── Sponsor a Child — CTA band ──────────────────────────────────── */
+function SponsorshipBand() {
+  return (
+    <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="brand-card flex flex-col gap-8 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex gap-5">
+            <span className="hidden shrink-0 h-14 w-14 place-items-center rounded-xl bg-white/10 text-brand-cyan sm:grid">
+              <HeartHandshake className="h-7 w-7" />
+            </span>
+            <div>
+              <p className="section-kicker">Sponsorship</p>
+              <h2 className="mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                Sponsor a child's AI and robotics education.
+              </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-white/60">
+                Your sponsorship covers course fees, robotics kits, and mentorship for a student
+                who couldn't otherwise afford it — turning curiosity into real, hands-on skill.
+              </p>
+            </div>
+          </div>
+          <Link to="/contact" className="btn-primary shrink-0">
+            Sponsor a Child
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 

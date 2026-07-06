@@ -34,7 +34,7 @@ export function Header() {
         </nav>
 
         <Link to="/courses" className="hidden cursor-pointer rounded-lg bg-brand-blue px-4 py-2 text-sm font-bold text-white shadow-[0_12px_28px_rgba(2,37,196,0.2)] transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] lg:inline-flex">
-          Explore Courses
+          Sponsor a Child
         </Link>
 
         <button
@@ -65,7 +65,7 @@ export function Header() {
               </NavLink>
             ))}
             <Link to="/courses" onClick={() => setMenuOpen(false)} className="mt-2 rounded-lg bg-brand-blue px-4 py-3 text-center text-sm font-bold text-white">
-              Explore Courses
+              Sponsor a Child
             </Link>
           </div>
         </nav>
