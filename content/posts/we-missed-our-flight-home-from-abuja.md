@@ -25,9 +25,15 @@ The trip was a whirlwind. Between late-night practice sessions and quick prayers
 
 We got to the venue early, only to find out the arena layout was a bit different than what we'd practiced for. Instead of panicking, the students jumped right in, tweaking their code on the spot to make sure the robots were perfectly aligned.
 
+![Team SMAIR at the competition venue in Abuja](https://static.wixstatic.com/media/b05d35_32930a16013041748082f81ccf9bbafd~mv2.jpg/v1/fill/w_800,h_533,al_c,q_90,enc_avif,quality_auto/b05d35_32930a16013041748082f81ccf9bbafd~mv2.jpg)
+
 With 22 teams from across the country, the competition was stiff. But our kids stood out immediately. While a lot of teams used standard kits, our students showed up with custom-built robots they designed themselves. Even the international observers from the ITU were impressed, calling their work "advanced" and "brilliant."
 
+![Students competing at the AI For Good Robotics Competition](https://static.wixstatic.com/media/b05d35_2749c9fae0504add8718de738944a727~mv2.jpg/v1/fill/w_800,h_533,al_c,q_90,enc_avif,quality_auto/b05d35_2749c9fae0504add8718de738944a727~mv2.jpg)
+
 The competition was intense. Team SMAIR fought through a tough scoring deduction but still managed to snag 3rd place overall! But we didn't just win with robots. Our students absolutely cleaned up in the academic rounds, winning the AI, Robotics, and General Knowledge quizzes. Watching them stand on that stage and take home trophy after trophy was easily the proudest moment of the entire trip.
+
+![SMAIR students with their trophies at the awards ceremony](https://static.wixstatic.com/media/b05d35_d5ce670498214eeca0e426506761b493~mv2.jpg/v1/fill/w_800,h_533,al_c,q_90,enc_avif,quality_auto/b05d35_d5ce670498214eeca0e426506761b493~mv2.jpg)
 
 Just when everyone thought the adventure was over, Abuja had one last surprise waiting for us. Because of delays while checking out from the hotel, the team arrived too late and missed the scheduled flight home. Yes. All 14 of us.
 

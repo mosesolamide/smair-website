@@ -28,6 +28,13 @@ From concept to circuitry, this project was entirely student-driven. The team wa
 
 The students created the chassis using hardboard and constructed the system with Arduino components, jumper wires, temperature sensors, glue, and paint. Watching the fan activate in response to rising room temperature demonstrated their understanding of real-world automation.
 
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-2">
+  <img src="https://static.wixstatic.com/media/b05d35_442c4495994448e7b93ee5e65d6bcf63~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_442c4495994448e7b93ee5e65d6bcf63~mv2.png" alt="Smart fan team building their project" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_c0dff434fd7442e095bd450d23e81494~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_c0dff434fd7442e095bd450d23e81494~mv2.png" alt="Temperature-controlled smart fan prototype" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_e351580615384fb28af0bfccaf28f03d~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_e351580615384fb28af0bfccaf28f03d~mv2.png" alt="Students presenting the smart fan project" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_1af614aadf1245e0b9e47613510a32f1~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_1af614aadf1245e0b9e47613510a32f1~mv2.png" alt="Smart fan team with their finished build" class="aspect-4/3 w-full rounded-lg object-cover" />
+</div>
+
 ## Project 2: Classroom Noise-Level Detection System Team
 
 The second team introduced a thoughtful and classroom-friendly innovation: a noise-level detection system designed to help maintain a conducive learning environment.
@@ -42,6 +49,13 @@ The team structure mirrored the first group, with:
 - More than ten students contributing to the design, programming, and assembly
 
 Their project was built using hardboard for the chassis, Arduino boards, sound sensors, jumper wires, and LED components. The result was a practical system that supports better classroom management.
+
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-2">
+  <img src="https://static.wixstatic.com/media/b05d35_2205a1a3ba314618961b8b72896b3940~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_2205a1a3ba314618961b8b72896b3940~mv2.png" alt="Noise-level detection team at work" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_b6e38e7aff1643f89892533a8e6d2453~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_b6e38e7aff1643f89892533a8e6d2453~mv2.png" alt="Classroom noise detection prototype" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_cc5f358059224be98c5ee86e64a93b57~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_cc5f358059224be98c5ee86e64a93b57~mv2.png" alt="Students presenting the noise detection system" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/b05d35_0ae5f1740a1b4454ae9b8a54b7b44fbe~mv2.png/v1/fill/w_600,h_450,al_c,q_90,enc_avif,quality_auto/b05d35_0ae5f1740a1b4454ae9b8a54b7b44fbe~mv2.png" alt="Straitgate High School SMAIR Club team" class="aspect-4/3 w-full rounded-lg object-cover" />
+</div>
 
 ## Celebrating Our SMAIR Family
 

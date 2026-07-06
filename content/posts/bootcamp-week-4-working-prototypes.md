@@ -31,6 +31,13 @@ The highlight of their week was undoubtedly the Automatic Door Project. This was
 
 To conclude the week, the students began the exciting process of brainstorming their capstone projects. Drawing on all the skills they've accumulated in robotics and coding, they started sketching, debating, and refining their own unique ideas. This phase represented their first real step into the world of engineering innovation, moving from guided projects to becoming the architects of their own final builds.
 
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-2">
+  <img src="https://static.wixstatic.com/media/42289d_24f66049dbfa41e38ebb849dac0024e2~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_24f66049dbfa41e38ebb849dac0024e2~mv2.jpg" alt="Students building the automatic door project" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_3357f1fae1394bf1a7cf57358c246cb9~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_3357f1fae1394bf1a7cf57358c246cb9~mv2.jpg" alt="Students wiring sensors for the automatic door" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_35eb2c53dafd443c9be803b84564a3ac~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_35eb2c53dafd443c9be803b84564a3ac~mv2.jpg" alt="Testing the ultrasonic distance sensor" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_3a3fead549024ecbbca62cc8955303ce~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_3a3fead549024ecbbca62cc8955303ce~mv2.jpg" alt="Students programming with PictoBlox" class="aspect-4/3 w-full rounded-lg object-cover" />
+</div>
+
 ## Play, Logic & Discovery
 
 For our younger learners, Week 4 was a masterclass in making complex topics accessible and exhilarating. The curriculum was designed to build foundational understanding through play, ensuring that every student felt empowered and curious. They learned the "big words" of technology, like "algorithms" and "circuits," by engaging in experiences that felt more like games than lessons.
@@ -42,6 +49,14 @@ A major focus was on developing computational thinking, starting with the comple
 From there, they seamlessly transitioned their new skills to the screen with the Maze Intro Activity. Using a block-based coding interface, they applied the same principles of sequential logic to navigate a character through a series of puzzles. The immediate visual feedback of the character successfully following their commands solidified their understanding and built their confidence as programmers.
 
 The week culminated in a burst of creativity as students explored the Secret Language of Game Creators. They discovered the basic building blocks of game design like events, loops, and conditional logic and then immediately put them into practice. Tasked with designing their own fun games featuring beloved Disney characters, they became storytellers and problem-solvers, sharpening their logic and sequencing skills while bringing their own imaginative ideas to life.
+
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+  <img src="https://static.wixstatic.com/media/42289d_8ac2bc969d274ef6bdc7abc920eae8bf~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_8ac2bc969d274ef6bdc7abc920eae8bf~mv2.jpg" alt="Younger students wiring an LED circuit" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_8b7b257552734b189920db1f1c58e405~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_8b7b257552734b189920db1f1c58e405~mv2.jpg" alt="Students playing Graph Paper Programming" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_a6a8fe0489c74ffe8ca6c675d900aa9d~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_a6a8fe0489c74ffe8ca6c675d900aa9d~mv2.jpg" alt="Students working through the Maze Intro activity" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_b47cf75d5774432ca53aa8cbd87610ad~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_b47cf75d5774432ca53aa8cbd87610ad~mv2.jpg" alt="Students designing their own Disney-inspired game" class="aspect-4/3 w-full rounded-lg object-cover" />
+  <img src="https://static.wixstatic.com/media/42289d_d2fa0ef48933417589d3e85828435ba4~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,enc_avif,quality_auto/42289d_d2fa0ef48933417589d3e85828435ba4~mv2.jpg" alt="Younger bootcampers celebrating their week 4 projects" class="aspect-4/3 w-full rounded-lg object-cover" />
+</div>
 
 ## The Big Picture
 
