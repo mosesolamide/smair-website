@@ -3,7 +3,7 @@ import { CalendarDays, Download, Lightbulb, MapPin, Youtube } from "lucide-react
 import { Link } from "react-router";
 import { ContactForm } from "../components/ContactForm";
 import { Reveal, cardVariants, revealVariants, staggerVariants, viewport } from "../components/motion";
-import { collaborators, sampleImages } from "../data/siteData";
+import { collaborators } from "../data/siteData";
 
 export function Home() {
   return (
@@ -11,7 +11,6 @@ export function Home() {
       <HeroSection />
       <ProgramsVisionSection />
       <UpdatesGetInvolvedSection />
-      <SmairClubSection />
       <DocumentarySection />
       <YouTubeSection />
       <WorkshopsSection />
@@ -180,62 +179,6 @@ function UpdatesGetInvolvedSection() {
           placement="center-high"
           delay={0.08}
         />
-      </div>
-    </section>
-  );
-}
-
-/* ─── SMAIR Club ────────────────────────────────────────────────── */
-const clubFeatures = [
-  "Affordable access: subsidized membership for all students and families",
-  "Project-based learning: real circuits, robots, and code projects",
-  "Structured learning tracks: from electronics basics through AI",
-  "Expert guidance: mentors and engineers from the AIR Innovation Tech",
-  "Innovative community: collaborate with peers from partner schools",
-  "Recognition & growth: certificates, showcases, and awards",
-];
-
-function SmairClubSection() {
-  return (
-    <section className="bg-white py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
-          <div className="overflow-hidden rounded-xl shadow-md">
-            <img
-              src={sampleImages[3].src}
-              alt="SMAIR Club students"
-              className="aspect-4/3 h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/8 px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-brand-blue">
-            SMAIR Club Initiative
-          </span>
-          <h2 className="section-title mt-4">
-            A membership-based learning program powered by AIR Innovation Tech.
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-zinc-500">
-            Subsidized by SMAIR Foundation, a discounted, high-value opportunity for students
-            aged 8 and above to access robotics, coding, AI, design thinking, and digital literacy.
-          </p>
-          <ul className="mt-6 grid gap-3">
-            {clubFeatures.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-sm text-zinc-600">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-blue/10 text-xs font-bold text-brand-blue">
-                  ✓
-                </span>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="btn-primary">Join SMAIR Club</Link>
-            <Link to="/contact" className="btn-outline">Partner Your School</Link>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

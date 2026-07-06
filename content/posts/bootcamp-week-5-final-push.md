@@ -11,6 +11,24 @@ comments: 0
 likes: 7
 ---
 
-This story captures the practical spirit of SMAIR: young learners building, coding, testing, sharing, and growing through technology.
+The final week of the SMAIR Bootcamp arrived, and with it came the Grand Finale Showcase. Students completed their most challenging assignments during this intensive week, pouring everything they had learned into one last push.
 
-Programs like these help students connect classroom curiosity to real projects, teamwork, communication, and future-ready technical confidence.
+## The Capstone Challenge
+
+Students worked in teams to build functional smart house prototypes. Team One created a system with a light-activated switch and a sensor-triggered automatic door. Team Two developed a house with a dark-activated light system and an automatic door. Both projects integrated coding, sensors, and mechanical components.
+
+## Digital Identity Development
+
+Beyond physical projects, students learned personal branding. They explored discovering their unique strengths, learning the four pillars of a powerful portfolio (About Me, Projects, Skills, and Contact), and creating digital portfolios using platforms like Canva and Google Sites.
+
+## The Grand Finale
+
+The showcase occurred on August 30th, where students presented their smart house projects and portfolios alongside participants from AI Robotics Innovation Tech and Technova.
+
+## Join Us
+
+We host weekly Saturday sessions from 10am to 1pm at 1B Ibitayo Street, Magodo Phase II, Lagos.
+
+Call/Whatsapp: 09161771271
+
+Email: info@smairfoundation.com

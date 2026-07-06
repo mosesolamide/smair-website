@@ -11,6 +11,62 @@ comments: 0
 likes: 5
 ---
 
-This story captures the practical spirit of SMAIR: young learners building, coding, testing, sharing, and growing through technology.
+At SMAIR, we always say that our students are the heartbeat of everything we do, and once again, they proved why. This week, our brilliant SMAIR Smart Club members from Straitgate High School, Magodo, gathered to present the projects they have been passionately building, refining, and developing over the past weeks.
 
-Programs like these help students connect classroom curiosity to real projects, teamwork, communication, and future-ready technical confidence.
+What made this moment even more special was that it wasn't just a presentation. It was our community coming together. Parents, teachers, and SMAIR staff joined virtually to support the students we proudly call ours. The event was confidently anchored by one of our own students, Christopher.
+
+## Project 1: Temperature-Controlled Smart Fan Team
+
+Our first group presented their fully functional temperature-controlled smart fan, designed to detect when a room becomes too hot and automatically activate to cool the space.
+
+From concept to circuitry, this project was entirely student-driven. The team was structured with:
+
+- A capable team captain leading with clarity and coordination
+- A circuitry lead handling Arduino connections, sensors, and wiring
+- A documentation lead ensuring the entire process was carefully recorded
+- Over ten dedicated team members contributing to the build, testing, and overall design
+
+The students created the chassis using hardboard and constructed the system with Arduino components, jumper wires, temperature sensors, glue, and paint. Watching the fan activate in response to rising room temperature demonstrated their understanding of real-world automation.
+
+## Project 2: Classroom Noise-Level Detection System Team
+
+The second team introduced a thoughtful and classroom-friendly innovation: a noise-level detection system designed to help maintain a conducive learning environment.
+
+Their device detects elevated noise levels, and when the sound crosses a preset threshold, an LED indicator lights up as a warning. This allows teachers or instructors to intervene promptly when classroom noise becomes excessive.
+
+The team structure mirrored the first group, with:
+
+- A responsible team captain
+- A skilled circuitry unit managing sensors and LED indicators
+- A documentation lead recording the process
+- More than ten students contributing to the design, programming, and assembly
+
+Their project was built using hardboard for the chassis, Arduino boards, sound sensors, jumper wires, and LED components. The result was a practical system that supports better classroom management.
+
+## Celebrating Our SMAIR Family
+
+Every presentation felt meaningful. Not only because of the innovative solutions the students built, but because of the confidence, teamwork, leadership, and discipline they demonstrated throughout the process.
+
+We are proud of their efforts, their determination, their collaborative spirit, and their ability to bring ideas to life. The event ran smoothly, and watching our students represent the SMAIR Smart Club with such dedication reaffirmed our commitment to nurturing young innovators.
+
+These students are more than members of a club. They are our SMAIR family, and we are honored to walk alongside them as they explore robotics, automation, and the limitless possibilities within STEM.
+
+## Want Your Child to Be Part of This?
+
+We host weekly sessions every Saturday at the AI & Robotics Innovation Technologies Center in collaboration with SMAIR Foundation.
+
+If your child is curious about technology, enjoys building things, or thrives in creative, hands-on environments, this is the perfect place to explore and grow.
+
+**Class Details:**
+
+Location: 1B Ibitayo Street, off Adekunle Banjo Avenue, Magodo Phase II, Lagos
+
+Time: 10am to 1pm
+
+Call/Whatsapp: 09161771271
+
+Email: info@smairfoundation.com
+
+Let's give your child more than just screen time.
+
+Let's give them the skills, confidence, and spark to build what's next.

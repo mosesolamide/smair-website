@@ -11,6 +11,49 @@ comments: 0
 likes: 5
 ---
 
-This story captures the practical spirit of SMAIR: young learners building, coding, testing, sharing, and growing through technology.
+SMAIR Foundation proudly hosted the Capstone Project Presentation for the SMAIR Robotics Club students of Straitgate Nursery and Primary School, Forthright. The event was streamed live via Zoom, allowing parents and invited guests to witness the creativity, confidence, and technical skills the students developed throughout the term.
 
-Programs like these help students connect classroom curiosity to real projects, teamwork, communication, and future-ready technical confidence.
+## Project Theme: Kaya Village Smart Home
+
+This term's project was built around the theme "Kaya Village." Students were challenged to imagine a home equipped with simple but effective automated systems that could enhance daily living. Their goal was to apply basic robotics, electronics, and design thinking to create a functional smart home prototype.
+
+## Smart Home Systems Demonstrated
+
+During the presentation, the students showcased various automated features integrated into their model homes, including:
+
+- Automatic doors
+- Automated lighting systems that respond without manual switching
+- A temperature-controlled fan that powers on when heat levels rise
+- An intrusion-sensitive alarm system
+- User-focused activation and deactivation controls for all systems
+
+These features focused on real-life issues such as energy management, convenience, home safety, and environmental comfort.
+
+## Student-Led Presentations
+
+A notable highlight was that the entire event was anchored by the students themselves. They presented their work with clarity and enthusiasm, explaining:
+
+- What inspired their ideas
+- The electronic and robotic concepts behind each system
+- Challenges encountered during the building process
+- How they collaborated to find solutions and complete the project
+
+Parents watching remotely expressed pride in both the students' communication skills and their ability to connect technical knowledge with real-world applications.
+
+## What the Students Learned
+
+Through this capstone project, the children developed:
+
+- An understanding of basic circuitry and electronic components
+- Introductory programming and automation logic
+- Problem-solving and troubleshooting skills
+- Team collaboration and presentation abilities
+- Confidence in applying STEM concepts to real-life situations
+
+The experience reinforced the idea that technology is a tool for improving lives and solving challenges.
+
+## Looking Ahead
+
+SMAIR Foundation is proud of the growth and innovation displayed by the students during this project. Their work demonstrates how effective early exposure to STEM can be in shaping future thinkers and problem-solvers.
+
+We extend our appreciation to the facilitators, school leadership, and parents who contributed to the success of this presentation.
