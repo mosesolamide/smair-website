@@ -19,7 +19,6 @@ export type Post = {
   readTime: string;
   category: string;
   views?: number;
-  comments?: number;
   likes?: number;
   body: string;
 };

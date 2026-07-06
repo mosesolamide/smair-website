@@ -19,6 +19,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Static form so Netlify's build bot can detect the "comments" form schema. Never rendered; the real form in CommentForm.tsx submits to this same form-name. -->
+    <form name="comments" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="postSlug" />
+      <input type="text" name="name" />
+      <textarea name="comment"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>

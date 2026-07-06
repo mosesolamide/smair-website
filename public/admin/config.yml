@@ -39,8 +39,13 @@ collections:
         options: ["Blogs & Newsletters", "newsletter", "smair bootcamp"]
         default: "Blogs & Newsletters"
       - { label: "Views", name: "views", widget: "number", default: 0, required: false, value_type: "int" }
-      - { label: "Comments", name: "comments", widget: "number", default: 0, required: false, value_type: "int" }
-      - { label: "Likes", name: "likes", widget: "number", default: 0, required: false, value_type: "int" }
+      - label: "Likes (starting count)"
+        name: "likes"
+        widget: "number"
+        default: 0
+        required: false
+        value_type: "int"
+        hint: "Visitors who click the heart add +1 on top of this in their own browser."
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "stories"
@@ -86,3 +91,30 @@ collections:
       - { label: "Venue", name: "venue", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Summary", name: "summary", widget: "text" }
+
+  - name: "comments"
+    label: "Comments"
+    label_singular: "Comment"
+    folder: "content/comments"
+    create: true
+    delete: true
+    slug: "{{postSlug}}-{{fields.name}}-{{uuid}}"
+    sortableFields: ["date", "postSlug"]
+    summary: "{{name}} on {{postSlug}} — {{date}}"
+    fields:
+      - label: "Blog Post"
+        name: "postSlug"
+        widget: "relation"
+        collection: "posts"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        value_field: "{{slug}}"
+        hint: "Pick which blog post this comment belongs to. New visitor comments arrive in your Netlify Forms dashboard (Forms tab) — copy the approved ones in here to publish them."
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Comment", name: "comment", widget: "text" }
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false

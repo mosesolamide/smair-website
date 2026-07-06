@@ -1,9 +1,12 @@
 import { useMemo, useState } from "react";
 import DOMPurify from "dompurify";
-import { Eye, Heart, MessageCircle, Search } from "lucide-react";
+import { Eye, MessageCircle, Search } from "lucide-react";
 import { marked } from "marked";
 import { Link, useParams } from "react-router";
+import { CommentForm } from "../components/CommentForm";
 import { Hero } from "../components/Hero";
+import { LikeButton } from "../components/LikeButton";
+import { commentsForPost } from "../data/comments";
 import { posts } from "../data/posts";
 import type { Post } from "../types";
 
@@ -147,13 +150,10 @@ function BlogCard({ post }: { post: Post }) {
           </span>
           <span className="flex items-center gap-1.5 text-xs">
             <MessageCircle className="h-4 w-4" />
-            {post.comments ?? 0}
+            {commentsForPost(post.slug).length}
           </span>
         </div>
-        <span className="flex items-center gap-1.5 text-xs text-zinc-400">
-          {post.likes ?? 0}
-          <Heart className="h-4 w-4 text-red-400" />
-        </span>
+        <LikeButton slug={post.slug} baseLikes={post.likes ?? 0} />
       </div>
     </Link>
   );
@@ -164,18 +164,30 @@ export function PostPage({ post }: { post: Post }) {
     () => DOMPurify.sanitize(marked.parse(post.body ?? "", { async: false }) as string),
     [post.body],
   );
+  const postComments = commentsForPost(post.slug);
 
   return (
     <>
       <Hero title={post.title} text={post.excerpt} image={post.image} />
       <section className="bg-white py-20 sm:py-24">
         <article className="mx-auto max-w-3xl px-5 sm:px-8">
-          <div className="mb-6 flex items-center gap-4 text-sm text-zinc-400">
+          <div className="mb-6 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
             <span className="font-semibold text-zinc-600">{post.author}</span>
             <span>·</span>
             <span>{post.date}</span>
             <span>·</span>
             <span>{post.readTime}</span>
+            <span className="ml-auto flex items-center gap-5">
+              <span className="flex items-center gap-1.5 text-xs">
+                <Eye className="h-4 w-4" />
+                {post.views ?? 0}
+              </span>
+              <span className="flex items-center gap-1.5 text-xs">
+                <MessageCircle className="h-4 w-4" />
+                {postComments.length}
+              </span>
+              <LikeButton slug={post.slug} baseLikes={post.likes ?? 0} />
+            </span>
           </div>
           <div
             className="prose-content space-y-5 text-lg leading-8 text-zinc-600"
@@ -185,6 +197,33 @@ export function PostPage({ post }: { post: Post }) {
           <Link to="/blog" className="mt-10 inline-flex btn-dark">
             ← Back to Blog
           </Link>
+
+          <div className="mt-16 border-t border-zinc-100 pt-10">
+            <h2 className="text-2xl font-black text-zinc-900">
+              {postComments.length === 0 ? "Be the first to comment" : `${postComments.length} Comment${postComments.length === 1 ? "" : "s"}`}
+            </h2>
+
+            {postComments.length > 0 && (
+              <div className="mt-6 grid gap-4">
+                {postComments.map((c) => (
+                  <div key={c.slug} className="rounded-xl border border-zinc-100 bg-zinc-50 p-5">
+                    <div className="flex items-center gap-3">
+                      <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-blue/10 text-xs font-bold text-brand-blue">
+                        {c.name.charAt(0).toUpperCase()}
+                      </div>
+                      <p className="text-sm font-bold text-zinc-900">{c.name}</p>
+                      <span className="text-xs text-zinc-400">{c.date}</span>
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-zinc-600">{c.comment}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-8">
+              <CommentForm postSlug={post.slug} />
+            </div>
+          </div>
         </article>
       </section>
     </>

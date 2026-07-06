@@ -20,7 +20,6 @@ export const posts: Post[] = Object.entries(files)
       readTime: String(data.readTime ?? ""),
       category: String(data.category ?? ""),
       views: toNumber(data.views),
-      comments: toNumber(data.comments),
       likes: toNumber(data.likes),
       body,
       _sortTime: sortTime(data.date),
