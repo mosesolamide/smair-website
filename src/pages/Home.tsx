@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
-import { CalendarDays, Download, Lightbulb, MapPin, Youtube } from "lucide-react";
+import { CalendarDays, Download, Lightbulb, MapPin, Play, Youtube } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
 import { ContactForm } from "../components/ContactForm";
 import { Reveal, cardVariants, revealVariants, staggerVariants, viewport } from "../components/motion";
 import { collaborators } from "../data/siteData";
+import { getYoutubeId, stories } from "../data/stories";
+import { upcomingEvents } from "../data/upcoming";
 
 export function Home() {
   return (
@@ -186,9 +189,11 @@ function UpdatesGetInvolvedSection() {
 
 /* ─── Documentary: Watch Our Story ─────────────────────────────── */
 function DocumentarySection() {
+  const [playingSlug, setPlayingSlug] = useState<string | null>(null);
+
   return (
     <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="text-center">
           <p className="section-kicker justify-center">SMAIR Documentary</p>
           <h2 className="section-title-dark mx-auto max-w-2xl">Watch our story.</h2>
@@ -198,17 +203,74 @@ function DocumentarySection() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="mt-10">
-          <video
-            controls
-            preload="none"
-            poster={heroPoster}
-            className="aspect-video w-full rounded-xl border border-white/10 object-cover shadow-[0_24px_70px_rgba(0,0,0,0.35)]"
+        {stories.length === 0 ? (
+          <Reveal delay={0.08} className="mx-auto mt-10 max-w-2xl rounded-3xl border border-dashed border-white/20 bg-white/5 px-6 py-14 text-center">
+            <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-white/10 text-white"><Youtube className="h-8 w-8" /></span>
+            <h3 className="mt-6 text-2xl font-black text-white">More stories coming soon</h3>
+            <p className="mx-auto mt-3 max-w-md leading-7 text-white/60">
+              Videos from our bootcamps, clubs, and events will appear here.
+            </p>
+          </Reveal>
+        ) : (
+          <motion.div
+            className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={staggerVariants}
           >
-            <source src={heroVideo} type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
-        </Reveal>
+            {stories.map((story) => {
+              const youtubeId = getYoutubeId(story.youtubeUrl);
+              const isPlaying = playingSlug === story.slug;
+              return (
+                <motion.div
+                  key={story.slug}
+                  className="overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                  variants={cardVariants}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                >
+                  <div className="relative aspect-video w-full">
+                    {isPlaying ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
+                        title={story.title}
+                        className="h-full w-full"
+                        allow="accelerate-compute; autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setPlayingSlug(story.slug)}
+                        className="group relative block h-full w-full cursor-pointer"
+                        aria-label={`Play ${story.title}`}
+                      >
+                        <img
+                          src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+                          alt=""
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                        <span className="absolute inset-0 bg-black/30 transition-colors duration-200 group-hover:bg-black/20" />
+                        <span className="absolute inset-0 grid place-items-center">
+                          <span className="grid h-14 w-14 place-items-center rounded-full bg-white/90 text-brand-blue shadow-lg transition-transform duration-200 group-hover:scale-110">
+                            <Play className="h-6 w-6 translate-x-0.5" fill="currentColor" />
+                          </span>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white">{story.title}</h3>
+                    {story.description && (
+                      <p className="mt-2 text-sm leading-6 text-white/60">{story.description}</p>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        )}
       </div>
     </section>
   );
@@ -253,23 +315,67 @@ function WorkshopsSection() {
           <p className="section-kicker justify-center">Upcoming Workshops & Seminars</p>
           <h2 className="section-title mx-auto max-w-3xl">Learn, connect, and build with us.</h2>
         </Reveal>
-        <Reveal className="mx-auto mt-12 max-w-3xl rounded-3xl border border-dashed border-brand-blue/25 bg-white px-6 py-14 text-center shadow-sm">
-          <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue"><CalendarDays className="h-8 w-8" /></span>
-          <h3 className="mt-6 text-2xl font-black text-brand-navy">No events at the moment</h3>
-          <p className="mx-auto mt-3 max-w-lg leading-7 text-zinc-500">New sessions are being planned. Contact us to bring a SMAIR workshop to your school.</p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="btn-outline">Register your interest</Link>
-            <a
-              href="https://22be33b4-62e6-4cf4-ace3-1e2489118037.filesusr.com/ugd/42289d_a8b6dfa83b3347898b806b1a09cdaf6f.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary"
+
+        {upcomingEvents.length === 0 ? (
+          <Reveal className="mx-auto mt-12 max-w-3xl rounded-3xl border border-dashed border-brand-blue/25 bg-white px-6 py-14 text-center shadow-sm">
+            <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue"><CalendarDays className="h-8 w-8" /></span>
+            <h3 className="mt-6 text-2xl font-black text-brand-navy">No events at the moment</h3>
+            <p className="mx-auto mt-3 max-w-lg leading-7 text-zinc-500">New sessions are being planned. Contact us to bring a SMAIR workshop to your school.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <Link to="/contact" className="btn-outline">Register your interest</Link>
+              <a
+                href="https://22be33b4-62e6-4cf4-ace3-1e2489118037.filesusr.com/ugd/42289d_a8b6dfa83b3347898b806b1a09cdaf6f.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+              >
+                <Download className="h-4 w-4" />
+                Download Brochure
+              </a>
+            </div>
+          </Reveal>
+        ) : (
+          <>
+            <motion.div
+              className="mt-12 grid gap-5 lg:grid-cols-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+              variants={staggerVariants}
             >
-              <Download className="h-4 w-4" />
-              Download Brochure
-            </a>
-          </div>
-        </Reveal>
+              {upcomingEvents.map((event) => (
+                <motion.div
+                  key={event.slug}
+                  className="overflow-hidden rounded-xl border border-white bg-white shadow-sm"
+                  variants={cardVariants}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                >
+                  {event.image && (
+                    <img src={event.image} alt="" className="aspect-video w-full object-cover" />
+                  )}
+                  <div className="p-6">
+                    <p className="section-kicker">{event.date}</p>
+                    <h3 className="mt-3 text-xl font-black text-zinc-900">{event.title}</h3>
+                    <p className="mt-1 text-sm font-semibold text-brand-blue">{event.venue}</p>
+                    <p className="mt-2 text-sm leading-6 text-zinc-500">{event.summary}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+            <Reveal className="mt-10 flex flex-wrap justify-center gap-3">
+              <Link to="/contact" className="btn-outline">Register your interest</Link>
+              <a
+                href="https://22be33b4-62e6-4cf4-ace3-1e2489118037.filesusr.com/ugd/42289d_a8b6dfa83b3347898b806b1a09cdaf6f.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+              >
+                <Download className="h-4 w-4" />
+                Download Brochure
+              </a>
+            </Reveal>
+          </>
+        )}
       </div>
     </section>
   );

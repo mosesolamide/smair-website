@@ -44,3 +44,20 @@ export type GalleryImage = {
   src: string;
   label: string;
 };
+
+export type StoryVideo = {
+  slug: string;
+  title: string;
+  youtubeUrl: string;
+  date: string;
+  description?: string;
+};
+
+export type UpcomingEvent = {
+  slug: string;
+  title: string;
+  date: string;
+  venue: string;
+  image?: string;
+  summary: string;
+};

@@ -42,3 +42,47 @@ collections:
       - { label: "Comments", name: "comments", widget: "number", default: 0, required: false, value_type: "int" }
       - { label: "Likes", name: "likes", widget: "number", default: 0, required: false, value_type: "int" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "stories"
+    label: "Our Story Videos"
+    label_singular: "Story Video"
+    folder: "content/stories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sortableFields: ["date", "title"]
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "YouTube Link"
+        name: "youtubeUrl"
+        widget: "string"
+        hint: "Paste the full YouTube video URL, e.g. https://www.youtube.com/watch?v=XXXXXXXXXXX"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - { label: "Short Description", name: "description", widget: "text", required: false }
+
+  - name: "upcoming"
+    label: "Upcoming Events"
+    label_singular: "Upcoming Event"
+    folder: "content/upcoming"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sortableFields: ["date", "title"]
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - { label: "Venue", name: "venue", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
