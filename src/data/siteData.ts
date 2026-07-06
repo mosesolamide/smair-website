@@ -376,9 +376,9 @@ export const collaborators = [
     href: "#",
   },
   {
-    name: "AI & Robotics Innovation Hub",
-    tagline: "AIR Innovation Hub",
-    logo: "https://static.wixstatic.com/media/3b80ec_e4f03057f8a6497e819ec63113b3c321~mv2.png",
+    name: "AI & Robotics Innovation Tech",
+    tagline: "AIR Innovation Tech",
+    logo: "https://static.wixstatic.com/media/3b80ec_38207c6057dd4e258779a5c3dc3c355a~mv2.png/v1/crop/x_0,y_125,w_632,h_156/fill/w_243,h_60,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/NEW_air_logo-removebg-preview.png",
     href: "#",
   },
 ];

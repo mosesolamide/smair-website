@@ -143,7 +143,7 @@ function ProgramsVisionSection() {
         />
         <PhotoPanel
           image={panelImages.vision}
-          alt="SMAIR students at the AI Robotics Innovation Hub"
+          alt="SMAIR students at the AI Robotics Innovation Tech"
           title="Our Vision"
           text="To create a future where AI and robotics drive progress, inclusivity, and equal access to technology education for all, empowering the next generation of innovators."
           linkLabel="Learn More"

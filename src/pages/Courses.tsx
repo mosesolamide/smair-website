@@ -27,7 +27,7 @@ const clubBenefits = [
   {
     icon: Compass,
     title: "Expert Guidance",
-    text: "Mentors and instructors from the AIR Innovation Hub guide every session, build, and presentation.",
+    text: "Mentors and instructors from the AIR Innovation Tech guide every session, build, and presentation.",
   },
   {
     icon: Users,
@@ -131,7 +131,7 @@ export function Project({ course }: { course: Course }) {
               leaves with a working project.
             </p>
             <p className="mt-4 text-lg leading-8 text-zinc-500">
-              Instructors from the AIR Innovation Hub guide small groups through each module, and students
+              Instructors from the AIR Innovation Tech guide small groups through each module, and students
               can carry this course into SMAIR Club for ongoing practice and showcases.
             </p>
             <Link to="/smair-club" className="mt-8 inline-flex btn-primary">
@@ -201,7 +201,7 @@ export function Club() {
             <h2 className="section-title">Two ways to join SMAIR Club.</h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-500">
               SMAIR Club welcomes students aged 8 and above, either as individual members or through a
-              school partnership delivered with the AIR Innovation Hub.
+              school partnership delivered with the AIR Innovation Tech.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -221,7 +221,7 @@ export function Club() {
               <h3 className="mt-3 text-2xl font-bold text-zinc-900">Partner Your School</h3>
               <p className="mt-3 text-zinc-500">
                 Schools can bring SMAIR Club to their students through a structured partnership, with
-                curriculum, mentors, and equipment support from the AIR Innovation Hub.
+                curriculum, mentors, and equipment support from the AIR Innovation Tech.
               </p>
               <Link to="/contact" className="mt-6 inline-flex btn-dark">
                 Start a Partnership
