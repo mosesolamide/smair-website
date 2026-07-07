@@ -50,28 +50,35 @@ export function Team() {
             ))}
           </motion.div>
 
-          <Reveal className="mt-16">
-            <p className="section-kicker">Volunteers</p>
+          <Reveal className="mt-16 text-center">
+            <p className="section-kicker justify-center">Volunteers</p>
             <h2 className="mt-3 text-3xl font-bold text-zinc-900">Other staff & volunteers</h2>
           </Reveal>
           <motion.div
-            className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+            className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             variants={staggerVariants}
           >
-            {volunteers.map((name) => (
+            {volunteers.map(({ name, firstName, email }) => (
               <motion.div
                 key={name}
-                className="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm"
+                className="text-center"
                 variants={cardVariants}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                <p className="font-bold text-zinc-900">{name}</p>
-                <p className="mt-1.5 text-sm text-zinc-500">
-                  Brings passion and dedication to the SMAIR mission.
+                <h3 className="text-xl font-bold text-brand-blue">{name}</h3>
+                <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-brand-blue/80">
+                  {firstName} brings passion and dedication to our mission. We're grateful for
+                  their continued support and the impact they make every day.
                 </p>
+                <a
+                  href={`mailto:${email}`}
+                  className="mt-4 inline-block text-sm font-bold text-brand-blue hover:underline"
+                >
+                  {email}
+                </a>
               </motion.div>
             ))}
           </motion.div>

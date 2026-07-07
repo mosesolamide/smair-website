@@ -249,7 +249,12 @@ export const team: TeamMember[] = [
   },
 ];
 
-export const volunteers = ["Amobi Ndubuisi", "Chiedozie Obidile", "Faith Amarachi", "Victor Duru"];
+export const volunteers = [
+  { name: "Amobi Ndubuisi", firstName: "Amobi", email: "amobi@smair.com" },
+  { name: "Chiedozie Obidile", firstName: "Edozie", email: "edozie@smair.com" },
+  { name: "Faith Amarachi", firstName: "Faith", email: "foma@smair.com" },
+  { name: "Victor Duru", firstName: "Victor", email: "victor@smair.com" },
+];
 
 /* Gallery images from the About/activity pages */
 export const sampleImages: GalleryImage[] = [
