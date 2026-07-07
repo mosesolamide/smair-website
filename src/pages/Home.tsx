@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { CalendarDays, Download, Lightbulb, MapPin, Play, Youtube } from "lucide-react";
+import { CalendarDays, Download, MapPin, Play, Youtube } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 import { ContactForm } from "../components/ContactForm";
 import { Reveal, cardVariants, revealVariants, staggerVariants, viewport } from "../components/motion";
+import { TestimonialSlider } from "../components/TestimonialSlider";
 import { collaborators } from "../data/siteData";
 import { getYoutubeId, stories } from "../data/stories";
+import { testimonials } from "../data/testimonials";
 import { upcomingEvents } from "../data/upcoming";
 
 export function Home() {
@@ -260,8 +262,8 @@ function DocumentarySection() {
                       </button>
                     )}
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-white">{story.title}</h3>
+                  <div className="p-5 bg-white h-full">
+                    <h3 className="text-lg font-bold text-zinc-900 hover:text-brand-blue">{story.title}</h3>
                     {story.description && (
                       <p className="mt-2 text-sm leading-6 text-white/60">{story.description}</p>
                     )}
@@ -413,63 +415,13 @@ function StatsSection() {
 }
 
 /* ─── Testimonials ──────────────────────────────────────────────── */
-const quotes = [
-  {
-    text: "SMAIR has ignited my passion for robotics and coding. The interactive classes and hands-on projects have been truly inspiring.",
-    name: "Faithful Ajah",
-    role: "Educator, SMAIR Foundation",
-  },
-  {
-    text: "The curriculum is well-structured and engaging. My students look forward to every session. SMAIR makes technology feel accessible and fun.",
-    name: "Michael Okafor",
-    role: "School Partner Teacher",
-  },
-  {
-    text: "Watching students build and program their own robots in just a few weeks is incredible. SMAIR's approach is exceptional.",
-    name: "Adaeze Nwosu",
-    role: "Parent & Community Advocate",
-  },
-];
-
 function TestimonialsSection() {
   return (
-    <section className="surface-grid bg-brand-surface py-20 sm:py-24">
+    <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal className="text-center">
-          <p className="section-kicker justify-center">Testimonials</p>
-          <h2 className="section-title mx-auto max-w-2xl">
-            Hear from educators, parents, and students.
-          </h2>
+        <Reveal>
+          <TestimonialSlider testimonials={testimonials} />
         </Reveal>
-
-        <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={staggerVariants}
-        >
-          {quotes.map(({ text, name, role }) => (
-            <motion.div
-              key={name}
-              className="flex flex-col gap-5 rounded-xl border border-white bg-white/90 p-7 shadow-sm"
-              variants={cardVariants}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <Lightbulb className="h-6 w-6 text-brand-blue" />
-              <blockquote className="flex-1 text-base font-medium leading-7 text-zinc-700">
-                "{text}"
-              </blockquote>
-              <div className="flex items-center gap-3 border-t border-zinc-100 pt-5">
-                <div className="h-10 w-10 rounded-full bg-zinc-100" />
-                <div>
-                  <p className="text-sm font-black text-zinc-900">{name}</p>
-                  <p className="text-xs text-zinc-500">{role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
