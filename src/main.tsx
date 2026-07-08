@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router";
 import { SiteLayout } from "./components/Layout";
 import { About } from "./pages/About";
 import { Blog, PostRoute } from "./pages/Blog";
@@ -31,7 +31,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="courses" element={<Courses />} />
-          <Route path="sponsorship" element={<Sponsorship />} />
+          <Route path="support" element={<Sponsorship />} />
+          <Route path="sponsorship" element={<Navigate to="/support" replace />} />
           <Route path="team" element={<Team />} />
           <Route path="news" element={<News />} />
           <Route path="blog" element={<Blog />} />

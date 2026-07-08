@@ -15,7 +15,7 @@ import type { Course, EventItem, GalleryImage, TeamMember } from "../types";
 
 export const navItems = [
   ["About", "/about"],
-  ["Sponsorship", "/sponsorship"],
+  ["Sponsorship", "/support"],
   ["Team", "/team"],
   ["News", "/news"],
   ["Blog", "/blog"],

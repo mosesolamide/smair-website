@@ -15,11 +15,11 @@ export function Courses() {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Banner image (no text) ───────────────── */}
-      <div className="pt-24">
+      <div data-hero className="mt-24">
         <img
           src={coursesHeroBanner}
           alt=""
-          className="h-[40vh] w-full object-cover sm:h-[50vh]"
+          className="h-[40vh] w-full object-cover object-center sm:h-[50vh]"
           loading="eager"
         />
       </div>
@@ -47,13 +47,13 @@ export function Courses() {
         ))}
       </div>
 
-      <SponsorshipBand />
+      <SupportBand />
     </div>
   );
 }
 
-/* ─── Sponsor a Child: CTA band ──────────────────────────────────── */
-function SponsorshipBand() {
+/* ─── Support CTA band ───────────────────────────────────────────── */
+function SupportBand() {
   return (
     <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -63,18 +63,19 @@ function SponsorshipBand() {
               <HeartHandshake className="h-7 w-7" />
             </span>
             <div>
-              <p className="section-kicker">Sponsorship</p>
+              <p className="section-kicker">Support SMAIR</p>
               <h2 className="mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-                Sponsor a child's AI and robotics education.
+                Help a young innovator learn, build, and create.
               </h2>
               <p className="mt-4 max-w-2xl leading-7 text-white/60">
-                Your sponsorship covers course fees, robotics kits, and mentorship for a student
-                who couldn't otherwise afford it, turning curiosity into real, hands-on skill.
+                Your support can cover course fees, robotics kits, and mentorship for a student,
+                turning curiosity into real, hands-on skill.
               </p>
             </div>
           </div>
-          <Link to="/contact" className="btn-primary shrink-0">
-            Sponsor a Child
+          <Link to="/support" className="btn-primary shrink-0">
+            <HeartHandshake className="h-4 w-4" aria-hidden="true" />
+            Support
           </Link>
         </div>
       </div>

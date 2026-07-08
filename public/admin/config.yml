@@ -9,6 +9,31 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "news"
+    label: "News"
+    label_singular: "News Article"
+    folder: "content/news"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sortableFields: ["date", "title"]
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Headline", name: "title", widget: "string" }
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - { label: "Location or Venue", name: "venue", widget: "string", required: false, default: "SMAIR Foundation" }
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        hint: "This image appears on the News card and article hero."
+      - { label: "Short Summary", name: "summary", widget: "text" }
+      - { label: "Article Content", name: "body", widget: "markdown", required: false }
+
   - name: "posts"
     label: "Blog Posts"
     label_singular: "Blog Post"

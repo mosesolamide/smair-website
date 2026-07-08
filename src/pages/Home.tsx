@@ -35,9 +35,9 @@ const heroPoster =
 
 function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-24">
+    <section data-hero className="relative isolate mt-24 flex min-h-[calc(100vh-6rem)] items-center overflow-hidden">
       <video
-        className="absolute inset-0 -z-30 h-full w-full object-cover"
+        className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
         autoPlay
         muted
         loop
@@ -47,7 +47,7 @@ function HeroSection() {
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 -z-10 bg-black/60" />
+      <div className="absolute inset-0 -z-10 bg-black/25" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 text-center text-white sm:px-8">
         <motion.div
@@ -66,10 +66,10 @@ function HeroSection() {
             Join us in shaping the future of technology.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link to="/courses" className="btn-primary px-8 py-4 text-base">
+            {/* <Link to="/courses" className="btn-primary px-8 py-4 text-base">
               Explore Courses
-            </Link>
-            <Link to="/about" className="btn-secondary px-8 py-4 text-base">
+            </Link> */}
+            <Link to="/about" className="w-[350px] btn-primary px-8 py-4 text-base">
               Discover SMAIR
             </Link>
           </div>
@@ -449,26 +449,22 @@ function CollaboratorsSection() {
           viewport={viewport}
           variants={staggerVariants}
         >
-          {collaborators.map(({ name, tagline, logo, href }) => (
+          {collaborators.map(({ name, logo, href }) => (
             <motion.a
               key={name}
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-zinc-100 bg-white p-8 shadow-sm"
+              className="flex min-h-64 items-center justify-center bg-white p-6"
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
-              <div className="flex h-32 items-center justify-center">
+              <div className="flex h-44 w-full items-center justify-center">
                 <img
                   src={logo}
                   alt={name}
-                  className="max-h-24 w-auto max-w-56 object-contain"
+                  className="max-h-36 w-auto max-w-full object-contain"
                 />
-              </div>
-              <div className="text-center">
-                <p className="text-sm font-black text-zinc-900">{name}</p>
-                <p className="text-xs text-zinc-400">{tagline}</p>
               </div>
             </motion.a>
           ))}

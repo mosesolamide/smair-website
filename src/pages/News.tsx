@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router";
 import { Hero } from "../components/Hero";
 import { cardVariants, staggerVariants, viewport } from "../components/motion";
+import { cmsNews, type NewsItem } from "../data/news";
 import { events } from "../data/siteData";
-import type { EventItem } from "../types";
 
 const MotionLink = motion.create(Link);
+const allNews: NewsItem[] = [...cmsNews, ...events];
 
 const legacyNews = [
   ["Oct 2023", "The Role of Sports in the Education System"],
@@ -31,7 +32,7 @@ export function News() {
             viewport={viewport}
             variants={staggerVariants}
           >
-            {events.map((event) => (
+            {allNews.map((event) => (
               <MotionLink
                 key={event.slug}
                 to={`/event-details/${event.slug}`}
@@ -83,7 +84,7 @@ export function News() {
   );
 }
 
-export function EventPage({ event }: { event: EventItem }) {
+export function EventPage({ event }: { event: NewsItem }) {
   return (
     <>
       <Hero title={event.title} text={event.summary} image={event.image} />
@@ -93,8 +94,7 @@ export function EventPage({ event }: { event: EventItem }) {
             <p className="section-kicker">{event.date}</p>
             <h2 className="mt-4 text-3xl font-bold text-zinc-900">{event.venue}</h2>
             <p className="mt-5 text-lg leading-8 text-zinc-500">
-              Join SMAIR for a focused learning and community experience with a clear path for attendance,
-              partnerships, or student registration.
+              {event.body || "Join SMAIR for a focused learning and community experience with a clear path for attendance, partnerships, or student registration."}
             </p>
           </div>
           <div className="rounded-xl border border-zinc-100 bg-white p-7 shadow-sm">
@@ -114,7 +114,7 @@ export function EventPage({ event }: { event: EventItem }) {
 
 export function EventRoute() {
   const { slug } = useParams();
-  const event = events.find((item) => item.slug === slug);
+  const event = allNews.find((item) => item.slug === slug);
   if (!event) return null;
   return <EventPage event={event} />;
 }

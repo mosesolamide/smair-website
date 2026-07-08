@@ -7,11 +7,11 @@ export function Team() {
   return (
     <>
       <Hero
-        title="Professionals focused on AI and robotics education."
-        text="The SMAIR team creates engaging learning experiences for students, schools, and community partners."
+        title={<span className="text-brand-blue">Our Team</span>}
+        text="Welcome to the SMAIR team! We are a group of dedicated professionals who are passionate about AI and robotics education. Our team is committed to providing an engaging and enriching learning experience for people of all ages. Through our innovative programs, we aim to inspire the next generation of creators and innovators."
         image="https://static.wixstatic.com/media/3b80ec_0d67ecbbd8b74b66aa6e820cbc90a7da~mv2.jpg/v1/fill/w_980,h_492,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3b80ec_0d67ecbbd8b74b66aa6e820cbc90a7da~mv2.jpg"
       />
-      <section className="bg-zinc-50 py-20 sm:py-24">
+      <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <Reveal>
             <p className="section-kicker">Our Team</p>

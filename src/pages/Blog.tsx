@@ -135,7 +135,7 @@ function BlogCard({ post }: { post: Post }) {
 
         {/* Bottom: title */}
         <div className="absolute bottom-0 left-0 right-0 p-4">
-          <h2 className="text-xl font-black leading-snug text-white drop-shadow-sm">
+          <h2 className="inline-block bg-white/95 px-3 py-2 text-xl font-black leading-snug text-brand-blue">
             {post.title}
           </h2>
         </div>
@@ -168,7 +168,7 @@ export function PostPage({ post }: { post: Post }) {
 
   return (
     <>
-      <Hero title={post.title} text={post.excerpt} image={post.image} />
+      <Hero title={<span className="text-brand-blue">{post.title}</span>} text={post.excerpt} image={post.image} />
       <section className="bg-white py-20 sm:py-24">
         <article className="mx-auto max-w-3xl px-5 sm:px-8">
           <div className="mb-6 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
@@ -190,7 +190,7 @@ export function PostPage({ post }: { post: Post }) {
             </span>
           </div>
           <div
-            className="prose-content space-y-5 text-lg leading-8 text-zinc-600"
+            className="prose-content space-y-5 text-lg leading-8 text-zinc-600 [&_h1]:text-brand-blue [&_h2]:text-brand-blue [&_h3]:text-brand-blue"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: html }}
           />
@@ -199,7 +199,7 @@ export function PostPage({ post }: { post: Post }) {
           </Link>
 
           <div className="mt-16 border-t border-zinc-100 pt-10">
-            <h2 className="text-2xl font-black text-zinc-900">
+            <h2 className="text-2xl font-black text-brand-blue">
               {postComments.length === 0 ? "Be the first to comment" : `${postComments.length} Comment${postComments.length === 1 ? "" : "s"}`}
             </h2>
 

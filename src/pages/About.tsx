@@ -18,26 +18,20 @@ const goals = [
   },
 ];
 
+const goalStyles = [
+  "border-sky-200 bg-sky-50",
+  "border-amber-200 bg-amber-50",
+  "border-violet-200 bg-violet-50",
+];
+
 export function About() {
   return (
     <>
       <Hero
-        title={<>A non-profit <span className="text-sky-300">AI &amp; Robotics</span> organization for students aged 8 and above.</>}
-        text="At SMAIR Foundation, students learn how to build robots and explore programming in a supportive, hands-on environment that nurtures creativity and innovation."
+        title={<span className="text-brand-blue">About SMAIR</span>}
+        text="SMAIR Foundation is a non-profit AI and Robotics organization where students aged 8 and above can learn how to build robots and also programming. Our programs are designed to provide a hands-on learning experience, allowing students to explore the exciting world of robotics and programming. With a focus on practical skills and creativity, we aim to inspire the next generation of innovators and problem solvers. Our team is dedicated to creating a supportive environment where students can unleash their potential and develop valuable skills for the future."
         image="https://static.wixstatic.com/media/3b80ec_3094fceb0ec0437293cd00225a1d63d9~mv2.jpg/v1/fill/w_1592,h_738,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3b80ec_3094fceb0ec0437293cd00225a1d63d9~mv2.jpg"
       />
-
-      {/* Our Vision */}
-      <section className="surface-grid-dark bg-brand-navy py-20 sm:py-24">
-        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
-          <Reveal>
-            <p className="section-kicker justify-center text-white/60">Our Vision</p>
-            <h2 className="section-title-dark mt-3">
-              Creating futures where AI and robotics drive progress, inclusivity, and equal access to technology.
-            </h2>
-          </Reveal>
-        </div>
-      </section>
 
       {/* Our Goals */}
       <section className="bg-white py-20 sm:py-24">
@@ -48,8 +42,8 @@ export function About() {
               <h2 className="section-title">Hands-on learning, practical creativity, and future readiness.</h2>
             </Reveal>
             <Reveal delay={0.08} className="grid gap-5">
-              {goals.map(({ title, text }) => (
-                <article key={title} className="feature-card">
+              {goals.map(({ title, text }, index) => (
+                <article key={title} className={`feature-card ${goalStyles[index]}`}>
                   <h3 className="text-xl font-bold text-zinc-900">{title}</h3>
                   <p className="mt-3 text-sm leading-7 text-zinc-500">{text}</p>
                 </article>

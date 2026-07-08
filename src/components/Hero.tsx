@@ -17,7 +17,8 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, childr
 
   return (
     <section
-      className={`relative isolate overflow-hidden pt-24 ${
+      data-hero
+      className={`relative isolate mt-24 overflow-hidden ${
         isHome
           ? "surface-grid-dark bg-brand-navy text-white"
           : image
@@ -30,10 +31,9 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, childr
           <img
             src={image}
             alt=""
-            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 -z-10 bg-brand-navy/70" />
         </>
       )}
 
@@ -112,12 +112,12 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, childr
           </div>
         ) : image ? (
           /* Inner page hero: full-bleed background image, no animation */
-          <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
-            <div>
-              <h1 className="mx-auto max-w-3xl text-3xl font-black uppercase leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] sm:text-4xl lg:text-5xl">
+          <div className="flex min-h-[75vh] items-end justify-center pb-0 pt-40 text-center text-white sm:min-h-[85vh] sm:pb-0 sm:pt-48">
+            <div className="border border-white/70 bg-white px-6 py-9 shadow-2xl sm:px-10 lg:px-14">
+              <h1 className="mx-auto max-w-3xl text-3xl font-black uppercase leading-tight text-brand-navy sm:text-4xl lg:text-5xl">
                 {title}
               </h1>
-              <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] sm:text-xl">
+              <p className="mx-auto mt-5 max-w-4xl text-base leading-8 text-zinc-600 sm:text-lg">
                 {text}
               </p>
             </div>

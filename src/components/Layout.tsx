@@ -1,6 +1,6 @@
-import { Instagram, Linkedin, Youtube } from "lucide-react";
+import { Heart, Instagram, Linkedin, Youtube } from "lucide-react";
 import React from "react";
-import { Link, NavLink, Outlet } from "react-router";
+import { Link, NavLink, Outlet, useLocation } from "react-router";
 import { navItems } from "../data/siteData";
 
 const socialLinks = [
@@ -11,9 +11,35 @@ const socialLinks = [
 
 export function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [heroVisible, setHeroVisible] = React.useState(true);
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    setHeroVisible(true);
+    setMenuOpen(false);
+
+    const frame = window.requestAnimationFrame(() => {
+      const hero = document.querySelector<HTMLElement>("main [data-hero]");
+      if (!hero) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => setHeroVisible(entry.isIntersecting),
+        { threshold: 0.02 },
+      );
+
+      observer.observe(hero);
+      cleanupObserver = () => observer.disconnect();
+    });
+
+    let cleanupObserver = () => {};
+    return () => {
+      window.cancelAnimationFrame(frame);
+      cleanupObserver();
+    };
+  }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white shadow-[0_10px_30px_rgba(9,13,31,0.06)] backdrop-blur-xl">
+    <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white shadow-[0_10px_30px_rgba(9,13,31,0.06)] backdrop-blur-xl transition-transform duration-500 ease-in-out ${heroVisible || menuOpen ? "translate-y-0" : "-translate-y-full"}`}>
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center" aria-label="SMAIR home">
           <img src="/smair-logo.png" alt="SMAIR Foundation" className="h-14 w-auto" />
@@ -33,8 +59,9 @@ export function Header() {
           ))}
         </nav>
 
-        <Link to="/sponsorship" className="hidden cursor-pointer rounded-lg bg-brand-blue px-6 py-3 text-base font-bold text-white shadow-[0_12px_28px_rgba(2,37,196,0.2)] transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] lg:inline-flex">
-          Sponsor a Child
+        <Link to="/support" className="hidden cursor-pointer items-center gap-2 rounded-lg bg-brand-blue px-6 py-3 text-base font-bold text-white shadow-[0_12px_28px_rgba(2,37,196,0.2)] transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] lg:inline-flex">
+          <Heart className="h-5 w-5 fill-current" aria-hidden="true" />
+          Support
         </Link>
 
         <button
@@ -64,8 +91,9 @@ export function Header() {
                 {label}
               </NavLink>
             ))}
-            <Link to="/sponsorship" onClick={() => setMenuOpen(false)} className="mt-2 rounded-lg bg-brand-blue px-4 py-3 text-center text-sm font-bold text-white">
-              Sponsor a Child
+            <Link to="/support" onClick={() => setMenuOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-4 py-3 text-center text-sm font-bold text-white">
+              <Heart className="h-4 w-4 fill-current" aria-hidden="true" />
+              Support
             </Link>
           </div>
         </nav>
