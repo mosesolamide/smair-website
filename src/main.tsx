@@ -22,10 +22,50 @@ function ScrollToTop() {
   return null;
 }
 
+const pageSeo: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: "SMAIR Foundation | AI & Robotics Education",
+    description: "SMAIR Foundation empowers young innovators through hands-on AI, robotics, coding, and technology education in Lagos, Nigeria.",
+  },
+  "/about": {
+    title: "About SMAIR Foundation | Our Mission",
+    description: "Learn about SMAIR Foundation, our team, and our mission to expand access to practical AI and robotics education.",
+  },
+  "/courses": {
+    title: "AI & Robotics Courses | SMAIR Foundation",
+    description: "Explore practical AI, robotics, electronics, and coding courses from SMAIR Foundation.",
+  },
+  "/support": {
+    title: "Support SMAIR Foundation",
+    description: "Support hands-on AI and robotics education for young innovators through SMAIR Foundation.",
+  },
+};
+
+function SeoManager() {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    const seo = pageSeo[pathname] ?? {
+      title: "SMAIR Foundation",
+      description: "AI, robotics, coding, and technology education for young innovators.",
+    };
+    const canonicalUrl = `https://www.smairfoundation.com${pathname === "/" ? "/" : pathname}`;
+    document.title = seo.title;
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", seo.description);
+    document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute("content", seo.title);
+    document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute("content", seo.description);
+    document.querySelector<HTMLMetaElement>('meta[property="og:url"]')?.setAttribute("content", canonicalUrl);
+    document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute("href", canonicalUrl);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SeoManager />
       <Routes>
         <Route element={<SiteLayout />}>
           <Route index element={<Home />} />
