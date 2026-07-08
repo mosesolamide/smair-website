@@ -5,14 +5,8 @@ import { Link } from "react-router";
 import { ContactBand } from "../components/ContactBand";
 import { Hero } from "../components/Hero";
 import { Reveal, cardVariants, staggerVariants, viewport } from "../components/motion";
+import { bankDetails } from "../data/donation";
 import { sampleImages } from "../data/siteData";
-
-// Replace these three values with SMAIR Foundation's bank details.
-const bankDetails = {
-  bankName: "Access Bank",
-  accountName: "AI Robotics Innovation Hub Technology Limited",
-  accountNumber: "1971017525",
-};
 
 const presetAmounts = [10000, 25000, 50000, 100000];
 const formatNaira = (amount: number) => `₦${amount.toLocaleString("en-NG")}`;

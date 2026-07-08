@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Check, Copy } from "lucide-react";
 import { ContactForm } from "../components/ContactForm";
 import { Hero } from "../components/Hero";
 import { Reveal } from "../components/motion";
+import { bankDetails } from "../data/donation";
 
 const presetAmounts = ["10,000", "50,000", "100,000", "500,000"];
 
@@ -47,27 +48,33 @@ function DonationSection() {
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [amount, setAmount] = useState(presetAmounts[1]);
   const [customAmount, setCustomAmount] = useState("");
-  const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    navigate("/donation-thank-you-page");
+    document.getElementById("contact-donation-account")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  async function copyAccountNumber() {
+    await navigator.clipboard.writeText(bankDetails.accountNumber);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
   }
 
   return (
-    <section className="bg-brand-navy py-20 sm:py-24">
+    <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal className="text-center">
           <p className="section-kicker">Support SMAIR</p>
-          <h2 className="section-title-dark">Help more students build, code, and create.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-400">
+          <h2 className="section-title">Help more students build, code, and create.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-500">
             Your donation funds robotics kits, bootcamps, and SMAIR Club sessions for students aged 8 and above.
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <form
             onSubmit={handleSubmit}
-            className="mt-10 rounded-2xl border border-white/8 bg-white/5 p-7 sm:p-10"
+            className="mt-10 rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-10"
           >
             <div className="flex gap-3">
               {(["one-time", "monthly"] as const).map((option) => (
@@ -78,7 +85,7 @@ function DonationSection() {
                   className={`flex-1 rounded-lg border px-4 py-3 text-sm font-semibold transition ${
                     frequency === option
                       ? "border-brand-cyan bg-brand-cyan text-zinc-900"
-                      : "border-white/15 text-white hover:border-brand-cyan/50"
+                      : "border-zinc-200 text-zinc-700 hover:border-brand-blue/50"
                   }`}
                 >
                   {option === "one-time" ? "One-Time" : "Monthly"}
@@ -94,17 +101,17 @@ function DonationSection() {
                   className={`rounded-lg border px-4 py-3 font-mono text-sm font-semibold transition ${
                     amount === value && !customAmount
                       ? "border-brand-cyan bg-brand-cyan text-zinc-900"
-                      : "border-white/15 text-white hover:border-brand-cyan/50"
+                      : "border-zinc-200 text-zinc-700 hover:border-brand-blue/50"
                   }`}
                 >
                   ₦{value}
                 </button>
               ))}
             </div>
-            <label className="mt-5 grid gap-2 text-sm font-semibold text-white">
+            <label className="mt-5 grid gap-2 text-sm font-semibold text-zinc-700">
               Custom amount (NGN)
               <input
-                className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 outline-none focus:border-brand-cyan"
+                className="form-input"
                 type="number"
                 min="1"
                 placeholder="Enter an amount"
@@ -113,9 +120,25 @@ function DonationSection() {
               />
             </label>
             <button type="submit" className="mt-6 w-full rounded-lg bg-brand-blue px-6 py-4 font-semibold text-white transition hover:bg-brand-blue/85">
-              Donate {frequency === "monthly" ? "Monthly" : "Now"}
+              Show Transfer Details
             </button>
           </form>
+        </Reveal>
+
+        <Reveal delay={0.12}>
+          <div id="contact-donation-account" className="mt-6 border border-brand-blue/20 bg-blue-50 p-7 sm:p-9">
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-brand-blue">Bank transfer details</p>
+            <dl className="mt-5 grid gap-3 text-zinc-700">
+              <div><dt className="inline font-bold text-zinc-900">Bank: </dt><dd className="inline">{bankDetails.bankName}</dd></div>
+              <div><dt className="inline font-bold text-zinc-900">Account name: </dt><dd className="inline">{bankDetails.accountName}</dd></div>
+              <div><dt className="inline font-bold text-zinc-900">Account number: </dt><dd className="inline font-mono text-xl font-black text-brand-navy">{bankDetails.accountNumber}</dd></div>
+              <div><dt className="inline font-bold text-zinc-900">Selected donation: </dt><dd className="inline">₦{customAmount || amount} {frequency === "monthly" ? "monthly" : "one-time"}</dd></div>
+            </dl>
+            <button type="button" onClick={copyAccountNumber} className="btn-primary mt-6">
+              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? "Account number copied" : "Copy account number"}
+            </button>
+          </div>
         </Reveal>
       </div>
     </section>
