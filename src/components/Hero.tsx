@@ -3,37 +3,43 @@ import { motion } from "framer-motion";
 import { revealVariants } from "./motion";
 
 type HeroProps = {
-  title: string;
+  title: React.ReactNode;
   text: string;
   kicker?: string;
   image?: string;
   leftImage?: string;
   rightImage?: string;
-  backgroundImage?: string;
   children?: React.ReactNode;
 };
 
-export function Hero({ title, text, kicker, image, leftImage, rightImage, backgroundImage, children }: HeroProps) {
+export function Hero({ title, text, kicker, image, leftImage, rightImage, children }: HeroProps) {
   const isHome = !!children;
 
   return (
     <section
-      className={`relative isolate overflow-hidden pt-15 ${
+      className={`relative isolate overflow-hidden pt-24 ${
         isHome
           ? "surface-grid-dark bg-brand-navy text-white"
           : image
           ? "bg-brand-navy text-white"
-          : backgroundImage
-          ? "bg-brand-navy text-white"
           : "surface-grid bg-white"
       }`}
-      style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")`, backgroundPosition: "center", backgroundSize: "cover" } : undefined}
     >
-      {backgroundImage && <div className="absolute inset-0 -z-10 bg-black/60" />}
+      {!isHome && image && (
+        <>
+          <img
+            src={image}
+            alt=""
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 -z-10 bg-brand-navy/70" />
+        </>
+      )}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {isHome ? (
-          <div className="grid min-h-[calc(100vh-60px)] items-center gap-10 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
+          <div className="grid min-h-[calc(100vh-96px)] items-center gap-10 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
             <motion.div
               className="max-w-3xl"
               initial="hidden"
@@ -106,25 +112,16 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
           </div>
         ) : image ? (
           /* Inner page hero: full-bleed background image, no animation */
-          <>
-            <img
-              src={image}
-              alt=""
-              className="absolute inset-0 -z-20 h-full w-full object-cover"
-              loading="eager"
-            />
-            <div className="absolute inset-0 -z-10 bg-black/60" />
-            <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
-              <div>
-                <h1 className="mx-auto max-w-3xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-                  {title}
-                </h1>
-                <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/80">
-                  {text}
-                </p>
-              </div>
+          <div className="flex min-h-[60vh] items-center justify-center py-20 text-center text-white sm:min-h-[70vh]">
+            <div>
+              <h1 className="mx-auto max-w-3xl text-3xl font-black uppercase leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] sm:text-4xl lg:text-5xl">
+                {title}
+              </h1>
+              <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] sm:text-xl">
+                {text}
+              </p>
             </div>
-          </>
+          </div>
         ) : (
           /* Inner page hero: no image, white bg */
           <div className="py-16 text-center sm:py-20">
@@ -134,10 +131,10 @@ export function Hero({ title, text, kicker, image, leftImage, rightImage, backgr
               variants={revealVariants}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <h1 className={`mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl ${backgroundImage ? "text-white" : "text-zinc-900"}`}>
+              <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-black leading-tight text-zinc-900 sm:text-5xl lg:text-6xl">
                 {title}
               </h1>
-              <p className={`mx-auto mt-4 max-w-xl text-lg leading-8 ${backgroundImage ? "text-white/80" : "text-zinc-500"}`}>
+              <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-500">
                 {text}
               </p>
             </motion.div>

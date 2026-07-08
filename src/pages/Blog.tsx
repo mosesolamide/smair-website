@@ -28,7 +28,7 @@ export function Blog() {
   });
 
   return (
-    <div className="min-h-screen bg-white pt-15">
+    <div className="min-h-screen bg-white pt-24">
       {/* ── Category nav ─────────────────────────────────── */}
       <div className="border-b border-zinc-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">

@@ -14,18 +14,18 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white shadow-[0_10px_30px_rgba(9,13,31,0.06)] backdrop-blur-xl">
-      <div className="mx-auto flex h-15 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center" aria-label="SMAIR home">
-          <img src="/smair-logo.png" alt="SMAIR Foundation" className="h-9 w-auto" />
+          <img src="/smair-logo.png" alt="SMAIR Foundation" className="h-14 w-auto" />
         </Link>
 
-        <nav className="hidden items-center rounded-lg border border-zinc-200/70 bg-zinc-50/80 p-0.5 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center rounded-lg border border-zinc-200/70 bg-zinc-50/80 p-1 lg:flex" aria-label="Main navigation">
           {navItems.map(([label, href]) => (
             <NavLink
               key={href}
               to={href}
               className={({ isActive }) =>
-                `cursor-pointer rounded-md px-3 py-1.5 text-sm font-semibold transition-all duration-200 hover:bg-white hover:text-brand-blue ${isActive ? "bg-white text-brand-blue shadow-sm" : "text-zinc-500"}`
+                `cursor-pointer rounded-md px-4 py-2.5 text-base font-semibold transition-all duration-200 hover:bg-white hover:text-brand-blue ${isActive ? "bg-white text-brand-blue shadow-sm" : "text-zinc-500"}`
               }
             >
               {label}
@@ -33,13 +33,13 @@ export function Header() {
           ))}
         </nav>
 
-        <Link to="/sponsorship" className="hidden cursor-pointer rounded-lg bg-brand-blue px-4 py-2 text-sm font-bold text-white shadow-[0_12px_28px_rgba(2,37,196,0.2)] transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] lg:inline-flex">
+        <Link to="/sponsorship" className="hidden cursor-pointer rounded-lg bg-brand-blue px-6 py-3 text-base font-bold text-white shadow-[0_12px_28px_rgba(2,37,196,0.2)] transition-all duration-200 hover:bg-brand-blue/85 active:scale-[0.98] lg:inline-flex">
           Sponsor a Child
         </Link>
 
         <button
           type="button"
-          className="flex h-9 w-9 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-lg border border-zinc-200 bg-white lg:hidden"
+          className="flex h-11 w-11 cursor-pointer flex-col items-center justify-center gap-1.25 rounded-lg border border-zinc-200 bg-white lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"

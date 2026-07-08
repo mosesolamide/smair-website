@@ -35,7 +35,7 @@ const heroPoster =
 
 function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-15">
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-24">
       <video
         className="absolute inset-0 -z-30 h-full w-full object-cover"
         autoPlay
@@ -56,10 +56,10 @@ function HeroSection() {
           variants={revealVariants}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-6 text-base font-bold uppercase tracking-[0.24em] text-white sm:text-lg">
+          <p className="mb-6 text-lg font-bold uppercase tracking-[0.22em] text-white sm:text-2xl lg:text-3xl">
             Discover the world of AI and robotics
           </p>
-          <h1 className="mx-auto max-w-6xl text-6xl font-black uppercase leading-[0.9] text-white sm:text-8xl lg:text-[7.5rem]">
+          <h1 className="mx-auto max-w-7xl text-7xl font-black uppercase leading-[0.9] text-white sm:text-9xl lg:text-[8.5rem]">
             Learn, Build,<br /><span className="text-brand-blue">Create</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-8 text-white/85 sm:text-2xl">
@@ -443,7 +443,7 @@ function CollaboratorsSection() {
         </Reveal>
 
         <motion.div
-          className="mt-12 grid gap-6 sm:grid-cols-3"
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -459,11 +459,11 @@ function CollaboratorsSection() {
               variants={cardVariants}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
-              <div className="flex h-24 items-center justify-center">
+              <div className="flex h-32 items-center justify-center">
                 <img
                   src={logo}
                   alt={name}
-                  className="max-h-16 w-auto max-w-45 object-contain"
+                  className="max-h-24 w-auto max-w-56 object-contain"
                 />
               </div>
               <div className="text-center">

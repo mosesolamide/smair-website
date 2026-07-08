@@ -22,11 +22,20 @@
   </head>
   <body>
     <div id="root"></div>
-    <!-- Static form so Netlify's build bot can detect the "comments" form schema. Never rendered; the real form in CommentForm.tsx submits to this same form-name. -->
+    <!-- Static forms so Netlify's build bot can detect these form schemas. Never rendered; the real forms in CommentForm.tsx / ContactForm.tsx submit to these same form-names. -->
     <form name="comments" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="text" name="postSlug" />
       <input type="text" name="name" />
       <textarea name="comment"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="netlify-recipients" value="info@smairfoundation.com" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <textarea name="inquiry"></textarea>
+      <input type="text" name="newsletter" />
       <input type="text" name="bot-field" />
     </form>
     <script type="module" src="/src/main.tsx"></script>

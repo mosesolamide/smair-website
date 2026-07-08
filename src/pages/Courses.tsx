@@ -15,7 +15,7 @@ export function Courses() {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Banner image (no text) ───────────────── */}
-      <div className="pt-15">
+      <div className="pt-24">
         <img
           src={coursesHeroBanner}
           alt=""
